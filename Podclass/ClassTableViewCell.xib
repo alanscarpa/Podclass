@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="ProximaNova-Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="178" id="KGk-i7-Jjw" customClass="ClassTableViewCell" customModule="Podclass" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="443" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="443" height="199.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girlCoffee" translatesAutoresizingMaskIntoConstraints="NO" id="50b-Xe-9lG">
+                        <rect key="frame" x="0.0" y="0.0" width="443" height="199.5"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to Ace the Product Management Interview" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hx1-jm-zVf" customClass="PCLabel" customModule="Podclass" customModuleProvider="target">
+                        <rect key="frame" x="12" y="50" width="419" height="100"/>
+                        <color key="backgroundColor" red="0.94568800929999997" green="0.34611855850000001" blue="0.7905888391" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="c7O-hm-bjb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="24"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="hx1-jm-zVf" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="EZ5-gH-U1L"/>
+                    <constraint firstItem="hx1-jm-zVf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RwL-Aq-arG"/>
+                    <constraint firstItem="50b-Xe-9lG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="VNm-m5-McB"/>
+                    <constraint firstAttribute="trailing" secondItem="hx1-jm-zVf" secondAttribute="trailing" constant="12" id="aRw-RX-ijw"/>
+                    <constraint firstAttribute="trailing" secondItem="50b-Xe-9lG" secondAttribute="trailing" id="eUO-ul-Zcz"/>
+                    <constraint firstAttribute="bottom" secondItem="50b-Xe-9lG" secondAttribute="bottom" id="hPB-FA-hvD"/>
+                    <constraint firstItem="50b-Xe-9lG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="knO-BR-3sF"/>
+                    <constraint firstItem="hx1-jm-zVf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="sT4-qb-Tk1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.090196080509999998" green="0.69803923369999998" blue="0.90196079019999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="backgroundImage" destination="50b-Xe-9lG" id="SS5-Fw-nV3"/>
+                <outlet property="titleLabel" destination="hx1-jm-zVf" id="Pu9-g1-rMW"/>
+            </connections>
+            <point key="canvasLocation" x="304.5" y="409"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="girlCoffee" width="5350" height="3567"/>
+    </resources>
+</document>
