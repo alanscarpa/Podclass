@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4588E5AB1C9EEA130065BEF2 /* UIView+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5AA1C9EEA130065BEF2 /* UIView+Podclass.swift */; };
 		459F450C1C9ECD1900DEDCED /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 459F45081C9ECD1900DEDCED /* ProximaNova-Light.otf */; };
 		459F450D1C9ECD1900DEDCED /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 459F45091C9ECD1900DEDCED /* ProximaNova-Regular.otf */; };
 		459F450E1C9ECD1900DEDCED /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 459F450A1C9ECD1900DEDCED /* Quicksand-Light.ttf */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4588E5AA1C9EEA130065BEF2 /* UIView+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Podclass.swift"; path = "Extensions/UIView+Podclass.swift"; sourceTree = "<group>"; };
 		459F45081C9ECD1900DEDCED /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Light.otf"; path = "Fonts/ProximaNova-Light.otf"; sourceTree = "<group>"; };
 		459F45091C9ECD1900DEDCED /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Regular.otf"; path = "Fonts/ProximaNova-Regular.otf"; sourceTree = "<group>"; };
 		459F450A1C9ECD1900DEDCED /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Light.ttf"; path = "Fonts/Quicksand-Light.ttf"; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4588E5A91C9EE9DF0065BEF2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4588E5AA1C9EEA130065BEF2 /* UIView+Podclass.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		459F45071C9ECC5F00DEDCED /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,13 +98,14 @@
 		45DF04D51C9EC9F5005B6C8A /* Podclass */ = {
 			isa = PBXGroup;
 			children = (
-				459F45071C9ECC5F00DEDCED /* Fonts */,
+				4588E5A91C9EE9DF0065BEF2 /* Extensions */,
 				45DF04D61C9EC9F5005B6C8A /* AppDelegate.swift */,
 				45DF04D81C9EC9F5005B6C8A /* RootViewController.swift */,
 				45DF04DA1C9EC9F5005B6C8A /* Main.storyboard */,
 				45DF04DD1C9EC9F5005B6C8A /* Assets.xcassets */,
 				45DF04DF1C9EC9F5005B6C8A /* LaunchScreen.storyboard */,
 				45DF04E21C9EC9F5005B6C8A /* Info.plist */,
+				459F45071C9ECC5F00DEDCED /* Fonts */,
 			);
 			path = Podclass;
 			sourceTree = "<group>";
@@ -235,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45DF04D91C9EC9F5005B6C8A /* RootViewController.swift in Sources */,
+				4588E5AB1C9EEA130065BEF2 /* UIView+Podclass.swift in Sources */,
 				45DF04D71C9EC9F5005B6C8A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

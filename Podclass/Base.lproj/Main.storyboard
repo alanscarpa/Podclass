@@ -5,6 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="ProximaNova-Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </mutableArray>
         <mutableArray key="Quicksand-Regular.ttf">
             <string>Quicksand-Regular</string>
         </mutableArray>
@@ -18,24 +21,48 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Main View">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1V-RW-fEa" userLabel="Top Bar">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Lgf-Th-75z"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PODCLASS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtH-XV-1SR">
-                                <rect key="frame" x="253.5" y="290.5" width="93" height="19.5"/>
-                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="223" y="284" width="153.5" height="32"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="28"/>
+                                <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listen and Learn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0W-mW-t9R">
+                                <rect key="frame" x="239" y="328" width="123" height="17"/>
+                                <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                                <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="v1V-RW-fEa" secondAttribute="trailing" id="4rD-pj-Qga"/>
+                            <constraint firstItem="v1V-RW-fEa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8RF-rz-n5E"/>
+                            <constraint firstItem="r0W-mW-t9R" firstAttribute="top" secondItem="wtH-XV-1SR" secondAttribute="bottom" constant="12" id="IqZ-W3-3dE"/>
+                            <constraint firstItem="v1V-RW-fEa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Xa4-zB-Lup"/>
                             <constraint firstItem="wtH-XV-1SR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gfs-Nz-Mfi"/>
                             <constraint firstItem="wtH-XV-1SR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hYM-xy-ra9"/>
+                            <constraint firstItem="r0W-mW-t9R" firstAttribute="centerX" secondItem="wtH-XV-1SR" secondAttribute="centerX" id="sg6-XY-DaF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J55-MC-4qZ"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="listenAndLearnLabel" destination="r0W-mW-t9R" id="veY-my-oNn"/>
+                        <outlet property="podclassLabel" destination="wtH-XV-1SR" id="QFd-q8-MZ8"/>
+                        <outlet property="topBarView" destination="v1V-RW-fEa" id="vxh-3w-TQN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
