@@ -9,24 +9,31 @@
 import UIKit
 import EasyAnimation
 
-class RootViewController: UIViewController {
-        
+class HomeViewController: UIViewController {
+    
     @IBOutlet weak var topBarView: UIView!
     @IBOutlet weak var podclassLabel: UILabel!
     @IBOutlet weak var listenAndLearnLabel: UILabel!
+    @IBOutlet weak var classTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topBarView.setBottomBorderWithColor(UIColor(red: 245/255.0, green: 124/255.0, blue: 0/255.0, alpha: 1).CGColor, width: 2.0)
-        self.topBarView.alpha = 0
-        self.podclassLabel.alpha = 0
-        self.listenAndLearnLabel.alpha = 0
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.setUp()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.launchIntroAnimation()
+    }
+    
+    private func setUp() {
+        topBarView.setBottomBorderWithColor(UIColor(red: 245/255.0, green: 124/255.0, blue: 0/255.0, alpha: 1).CGColor, width: 2.0)
+        self.topBarView.alpha = 0
+        self.podclassLabel.alpha = 0
+        self.listenAndLearnLabel.alpha = 0
+        self.classTableView.alpha = 0
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.classTableView.registerNib(UINib(nibName: ClassTableViewCell.className(), bundle: nil), forCellReuseIdentifier: ClassTableViewCell.className())
     }
     
     private func launchIntroAnimation() {
@@ -41,10 +48,24 @@ class RootViewController: UIViewController {
                 self.listenAndLearnLabel.alpha = 0
             }, completion: nil).animateWithDuration(0.25, delay: 0, options: [.CurveEaseOut], animations: {
                 self.topBarView.alpha = 1
-                }, completion: { complete in
-                    return complete
-                })
+                self.classTableView.alpha = 1
+            }, completion: { complete in
+                return complete
+            })
     }
+    
+    // MARK: UITableViewDataSource
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(ClassTableViewCell.className(), forIndexPath: indexPath) as! ClassTableViewCell
+        return cell
+    }
+    
+    
 
 }
 

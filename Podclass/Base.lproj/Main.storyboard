@@ -13,10 +13,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Root View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RootViewController" customModule="Podclass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Podclass" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -44,21 +44,34 @@
                                 <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="183" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qwj-sE-oSS">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="hjP-fk-fue"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="CbR-FP-QKw"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="v1V-RW-fEa" secondAttribute="trailing" id="4rD-pj-Qga"/>
                             <constraint firstItem="v1V-RW-fEa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8RF-rz-n5E"/>
                             <constraint firstItem="r0W-mW-t9R" firstAttribute="top" secondItem="wtH-XV-1SR" secondAttribute="bottom" constant="12" id="IqZ-W3-3dE"/>
+                            <constraint firstAttribute="trailing" secondItem="Qwj-sE-oSS" secondAttribute="trailing" id="UCd-Cz-phe"/>
+                            <constraint firstItem="Qwj-sE-oSS" firstAttribute="top" secondItem="v1V-RW-fEa" secondAttribute="bottom" id="Um5-rg-1k1"/>
                             <constraint firstItem="v1V-RW-fEa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Xa4-zB-Lup"/>
+                            <constraint firstItem="Qwj-sE-oSS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ya2-yU-vUh"/>
                             <constraint firstItem="wtH-XV-1SR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gfs-Nz-Mfi"/>
                             <constraint firstItem="wtH-XV-1SR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hYM-xy-ra9"/>
                             <constraint firstItem="r0W-mW-t9R" firstAttribute="centerX" secondItem="wtH-XV-1SR" secondAttribute="centerX" id="sg6-XY-DaF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Qwj-sE-oSS" secondAttribute="bottom" id="vGw-bI-ZGP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J55-MC-4qZ"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="classTableView" destination="Qwj-sE-oSS" id="LRF-WR-So7"/>
                         <outlet property="listenAndLearnLabel" destination="r0W-mW-t9R" id="veY-my-oNn"/>
                         <outlet property="podclassLabel" destination="wtH-XV-1SR" id="QFd-q8-MZ8"/>
                         <outlet property="topBarView" destination="v1V-RW-fEa" id="vxh-3w-TQN"/>
