@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
         self.classTableView.alpha = 0
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.classTableView.registerNib(UINib(nibName: ClassTableViewCell.className(), bundle: nil), forCellReuseIdentifier: ClassTableViewCell.className())
+        self.classTableView.backgroundColor = UIColor(patternImage: UIImage(named: "tableViewBackground")!)
     }
     
     private func createDummyModels() {
