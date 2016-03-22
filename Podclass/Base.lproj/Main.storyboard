@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="L7h-fi-GnN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="L7h-fi-GnN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="ProximaNova-Regular.otf">
@@ -32,14 +33,14 @@
                                     <constraint firstAttribute="height" constant="44" id="Lgf-Th-75z"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PODCLASS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtH-XV-1SR">
-                                <rect key="frame" x="223" y="284" width="153.5" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PODCLASS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtH-XV-1SR">
+                                <rect key="frame" x="223" y="217" width="153.5" height="32"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="28"/>
                                 <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listen and Learn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0W-mW-t9R">
-                                <rect key="frame" x="239" y="328" width="123" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Listen and Learn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0W-mW-t9R">
+                                <rect key="frame" x="239" y="261" width="123" height="17"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
                                 <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -64,7 +65,7 @@
                             <constraint firstItem="v1V-RW-fEa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Xa4-zB-Lup"/>
                             <constraint firstItem="Qwj-sE-oSS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ya2-yU-vUh"/>
                             <constraint firstItem="wtH-XV-1SR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gfs-Nz-Mfi"/>
-                            <constraint firstItem="wtH-XV-1SR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hYM-xy-ra9"/>
+                            <constraint firstItem="v1V-RW-fEa" firstAttribute="centerY" secondItem="wtH-XV-1SR" secondAttribute="top" constant="-175" id="iow-Wz-jbs"/>
                             <constraint firstItem="r0W-mW-t9R" firstAttribute="centerX" secondItem="wtH-XV-1SR" secondAttribute="centerX" id="sg6-XY-DaF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Qwj-sE-oSS" secondAttribute="bottom" id="vGw-bI-ZGP"/>
                         </constraints>
@@ -75,6 +76,7 @@
                         <outlet property="classTableView" destination="Qwj-sE-oSS" id="LRF-WR-So7"/>
                         <outlet property="listenAndLearnLabel" destination="r0W-mW-t9R" id="veY-my-oNn"/>
                         <outlet property="podclassLabel" destination="wtH-XV-1SR" id="QFd-q8-MZ8"/>
+                        <outlet property="podclassLabelTopConstraint" destination="iow-Wz-jbs" id="YbQ-vN-kwA"/>
                         <outlet property="topBarView" destination="v1V-RW-fEa" id="vxh-3w-TQN"/>
                     </connections>
                 </viewController>
