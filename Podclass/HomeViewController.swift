@@ -17,6 +17,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var classTableView: UITableView!
     
     var dummyModels = []
+    var animationDidPlay = false
+    
+    @IBOutlet weak var podclassLabelTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +27,17 @@ class HomeViewController: UIViewController {
         self.createDummyModels()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.launchIntroAnimation()
+        if !self.animationDidPlay {
+            self.launchIntroAnimation()
+            self.animationDidPlay = true
+        }
     }
     
     private func setUp() {
@@ -35,7 +46,6 @@ class HomeViewController: UIViewController {
         self.podclassLabel.alpha = 0
         self.listenAndLearnLabel.alpha = 0
         self.classTableView.alpha = 0
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.classTableView.registerNib(UINib(nibName: ClassTableViewCell.className(), bundle: nil), forCellReuseIdentifier: ClassTableViewCell.className())
         self.classTableView.backgroundColor = UIColor(patternImage: UIImage(named: "tableViewBackground")!)
     }
@@ -44,12 +54,25 @@ class HomeViewController: UIViewController {
         let class1 = PCClass()
         class1.name = "How to Ace the Product Management Interview"
         class1.homeImageName = "girlCoffee"
+        class1.summary = "What are the most commonly asked Product Management interview questions? How can you best prepare so that you can ace your interview? Walk through the 8 Most Common Interview Questions, according to Madhu Punjabi - Product Manager at Pinterest."
+        class1.whatYouLearn = "A real sense of what you will be asked in your Product Management interview. For each of the commonly asked questions, we'll go over what interviewers are looking for in a response as well as some sample responses."
+        class1.whoItsFor = "Aspiring PMs who soon face their first PM interview. Folks who've become PMs at their current company by way of promotion and must now face their first real PM interview with another company. "
+        let lesson1 = PCLesson(number: 1, title: "Why do you want to work here?")
+        let lesson2 = PCLesson(number: 2, title: "How would you improve our product?")
+        let lesson3 = PCLesson(number: 3, title: "What's your favorite product and why?")
+        let lesson4 = PCLesson(number: 4, title: "What are the 3 metrics we care about?")
+        let lesson5 = PCLesson(number: 5, title: "How do you prioritize between X and Y?")
+        let lesson6 = PCLesson(number: 6, title: "How would you test a feature?")
+        let lesson7 = PCLesson(number: 7, title: "Have you had to convince someone who didn't report to you to do something?")
+        let lesson8 = PCLesson(number: 8, title: "Do you have any questions for me?")
+        class1.syllabus = [lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7, lesson8]
+        class1.producedBy = "Podclass, in conjunction with Madhu Punjabi, Product Manager @ Pinterest"
         let class2 = PCClass()
         class2.name = "Think Like An iOS Developer"
-        class2.homeImageName = "computerHands"
+        class2.homeImageName = "girlComputer"
         let class3 = PCClass()
         class3.name = "Designing for Mobile"
-        class3.homeImageName = "girlComputer"
+        class3.homeImageName = "computerHands"
         self.dummyModels = [class1, class2, class3]
     }
     
@@ -67,7 +90,9 @@ class HomeViewController: UIViewController {
                 self.topBarView.alpha = 1
                 self.classTableView.alpha = 1
             }, completion: { complete in
-                return complete
+                self.view.layoutSubviews()
+                self.podclassLabel.layer.zPosition = 10
+                self.podclassLabelTopConstraint.constant = 14
             })
     }
     
@@ -83,6 +108,16 @@ class HomeViewController: UIViewController {
             cell.configureForClass(pcClass)
         }
         return cell
+    }
+    
+    // MARK: UITableViewDelegate
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)  {
+        let vc = PitchViewController.initWithDefaultNib()
+        if let currentClass = self.dummyModels[indexPath.row] as? PCClass {
+            vc.currentClass = currentClass
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     

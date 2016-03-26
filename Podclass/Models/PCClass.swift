@@ -11,5 +11,10 @@ import Foundation
 class PCClass {
     var name = ""
     var homeImageName = ""
+    var summary = ""
+    var whatYouLearn = ""
+    var whoItsFor = ""
+    var syllabus = [PCLesson]()
+    var producedBy = ""
 }
 
