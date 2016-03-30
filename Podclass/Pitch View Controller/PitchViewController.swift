@@ -50,8 +50,14 @@ class PitchViewController: UIViewController {
     
     // Actions
     
-    @IBAction func backButtonTapped(sender: AnyObject) {
+    @IBAction func backButtonTapped() {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func startClassButtonTapped() {
+        let classVC = ClassViewController.initWithDefaultNib()
+        classVC.currentClass = self.currentClass
+        self.navigationController?.pushViewController(classVC, animated: true)
     }
     
     // MARK: UITableViewDataSource
@@ -65,6 +71,8 @@ class PitchViewController: UIViewController {
         cell.configureForLesson(self.currentClass.syllabus[indexPath.row])
         return cell
     }
+    
+   
     
 
 }
