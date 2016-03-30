@@ -21,6 +21,7 @@ class PitchViewController: UIViewController {
     @IBOutlet private weak var syllabusTableView: UITableView!
     @IBOutlet private weak var syllabusTableViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var buttonBackgroundView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
@@ -38,6 +39,7 @@ class PitchViewController: UIViewController {
     }
     
     private func configureUI() {
+        
         self.headerImageView.image = UIImage(named: self.currentClass.homeImageName)
         self.classTitleLabel.text = self.currentClass.name
         self.summaryBodyLabel.text = self.currentClass.summary

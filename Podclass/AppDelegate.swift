@@ -15,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+//        self.view.addSubview(view)
+//        [[[UIApplication sharedApplication] keyWindow] addSubview:<yourViewObject>];
+
         return true
     }
 

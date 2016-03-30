@@ -4,11 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="ProximaNova-Regular.otf">
-            <string>ProximaNova-Regular</string>
-        </mutableArray>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,13 +17,16 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girlCoffee" translatesAutoresizingMaskIntoConstraints="NO" id="50b-Xe-9lG">
                         <rect key="frame" x="0.0" y="0.0" width="443" height="199.5"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to Ace the Product Management Interview" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hx1-jm-zVf" customClass="PCLabel" customModule="Podclass" customModuleProvider="target">
+                    <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7BO-8b-u6F" userLabel="Overlay">
+                        <rect key="frame" x="0.0" y="0.0" width="443" height="199.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to Ace the Product Management Interview" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hx1-jm-zVf">
                         <rect key="frame" x="12" y="50" width="419" height="100"/>
-                        <color key="backgroundColor" red="0.94568800929999997" green="0.34611855850000001" blue="0.7905888391" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="c7O-hm-bjb"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="24"/>
+                        <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="24"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -36,8 +34,12 @@
                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="hx1-jm-zVf" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="EZ5-gH-U1L"/>
+                    <constraint firstItem="7BO-8b-u6F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="G38-ML-MzS"/>
+                    <constraint firstAttribute="trailing" secondItem="7BO-8b-u6F" secondAttribute="trailing" id="Go4-I9-Juc"/>
+                    <constraint firstItem="7BO-8b-u6F" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LZH-vg-P9d"/>
                     <constraint firstItem="hx1-jm-zVf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RwL-Aq-arG"/>
                     <constraint firstItem="50b-Xe-9lG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="VNm-m5-McB"/>
+                    <constraint firstAttribute="bottom" secondItem="7BO-8b-u6F" secondAttribute="bottom" id="Z7L-q9-bnP"/>
                     <constraint firstAttribute="trailing" secondItem="hx1-jm-zVf" secondAttribute="trailing" constant="12" id="aRw-RX-ijw"/>
                     <constraint firstAttribute="trailing" secondItem="50b-Xe-9lG" secondAttribute="trailing" id="eUO-ul-Zcz"/>
                     <constraint firstAttribute="bottom" secondItem="50b-Xe-9lG" secondAttribute="bottom" id="hPB-FA-hvD"/>

@@ -41,6 +41,11 @@ class HomeViewController: UIViewController {
     }
     
     private func setUp() {
+        let statusBarBackgroundView = UIView(frame:
+            CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: 20.0)
+        )
+        statusBarBackgroundView.backgroundColor = UIColor.whiteColor()
+        UIApplication.sharedApplication().keyWindow?.addSubview(statusBarBackgroundView)
         topBarView.setBottomBorderWithColor(UIColor.pcOrange().CGColor, width: 2.0)
         self.topBarView.alpha = 0
         self.podclassLabel.alpha = 0
