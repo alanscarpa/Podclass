@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		452AFD4A1CAC880B00DCF69C /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452AFD481CAC880B00DCF69C /* ClassViewController.swift */; };
+		452AFD4B1CAC880B00DCF69C /* ClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452AFD491CAC880B00DCF69C /* ClassViewController.xib */; };
+		452AFD4E1CACA25800DCF69C /* PCClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452AFD4C1CACA25800DCF69C /* PCClassTableViewCell.swift */; };
+		452AFD4F1CACA25800DCF69C /* PCClassTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452AFD4D1CACA25800DCF69C /* PCClassTableViewCell.xib */; };
+		452AFD511CB0668200DCF69C /* PCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452AFD501CB0668200DCF69C /* PCLabel.swift */; };
+		452AFD531CB066A900DCF69C /* PCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452AFD521CB066A900DCF69C /* PCView.swift */; };
 		456886971CA5F11900487D6E /* SyllabusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456886951CA5F11900487D6E /* SyllabusTableViewCell.swift */; };
 		456886981CA5F11900487D6E /* SyllabusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456886961CA5F11900487D6E /* SyllabusTableViewCell.xib */; };
 		4568869A1CA6D01A00487D6E /* PCLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456886991CA6D01A00487D6E /* PCLesson.swift */; };
@@ -14,7 +20,6 @@
 		4588E5AE1C9EEEFE0065BEF2 /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5AC1C9EEEFE0065BEF2 /* ClassTableViewCell.swift */; };
 		4588E5AF1C9EEEFE0065BEF2 /* ClassTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4588E5AD1C9EEEFE0065BEF2 /* ClassTableViewCell.xib */; };
 		4588E5B11C9EF37D0065BEF2 /* NSObject+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5B01C9EF37D0065BEF2 /* NSObject+Podclass.swift */; };
-		4588E5B51C9EFE6F0065BEF2 /* PCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5B41C9EFE6E0065BEF2 /* PCLabel.swift */; };
 		4588E5B81C9F03F40065BEF2 /* UIColor+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5B71C9F03F40065BEF2 /* UIColor+Podclass.swift */; };
 		4588E5BA1C9F059A0065BEF2 /* PCClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5B91C9F059A0065BEF2 /* PCClass.swift */; };
 		4588E5C01CA20DCE0065BEF2 /* PitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5BE1CA20DCE0065BEF2 /* PitchViewController.swift */; };
@@ -33,6 +38,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		452AFD481CAC880B00DCF69C /* ClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassViewController.swift; path = "Class View Controller/ClassViewController.swift"; sourceTree = "<group>"; };
+		452AFD491CAC880B00DCF69C /* ClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ClassViewController.xib; path = "Class View Controller/ClassViewController.xib"; sourceTree = "<group>"; };
+		452AFD4C1CACA25800DCF69C /* PCClassTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCClassTableViewCell.swift; path = "Class View Controller/PCClassTableViewCell.swift"; sourceTree = "<group>"; };
+		452AFD4D1CACA25800DCF69C /* PCClassTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PCClassTableViewCell.xib; path = "Class View Controller/PCClassTableViewCell.xib"; sourceTree = "<group>"; };
+		452AFD501CB0668200DCF69C /* PCLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCLabel.swift; path = Views/PCLabel.swift; sourceTree = "<group>"; };
+		452AFD521CB066A900DCF69C /* PCView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCView.swift; path = Views/PCView.swift; sourceTree = "<group>"; };
 		456886951CA5F11900487D6E /* SyllabusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SyllabusTableViewCell.swift; path = "Pitch View Controller/SyllabusTableViewCell.swift"; sourceTree = "<group>"; };
 		456886961CA5F11900487D6E /* SyllabusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SyllabusTableViewCell.xib; path = "Pitch View Controller/SyllabusTableViewCell.xib"; sourceTree = "<group>"; };
 		456886991CA6D01A00487D6E /* PCLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCLesson.swift; path = Models/PCLesson.swift; sourceTree = "<group>"; };
@@ -40,7 +51,6 @@
 		4588E5AC1C9EEEFE0065BEF2 /* ClassTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
 		4588E5AD1C9EEEFE0065BEF2 /* ClassTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassTableViewCell.xib; sourceTree = "<group>"; };
 		4588E5B01C9EF37D0065BEF2 /* NSObject+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSObject+Podclass.swift"; path = "Extensions/NSObject+Podclass.swift"; sourceTree = "<group>"; };
-		4588E5B41C9EFE6E0065BEF2 /* PCLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCLabel.swift; path = Categories/PCLabel.swift; sourceTree = "<group>"; };
 		4588E5B71C9F03F40065BEF2 /* UIColor+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Podclass.swift"; sourceTree = "<group>"; };
 		4588E5B91C9F059A0065BEF2 /* PCClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCClass.swift; path = Models/PCClass.swift; sourceTree = "<group>"; };
 		4588E5BE1CA20DCE0065BEF2 /* PitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PitchViewController.swift; path = "Pitch View Controller/PitchViewController.swift"; sourceTree = "<group>"; };
@@ -82,6 +92,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		452AFD471CAC87BF00DCF69C /* Class View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				452AFD481CAC880B00DCF69C /* ClassViewController.swift */,
+				452AFD491CAC880B00DCF69C /* ClassViewController.xib */,
+				452AFD4C1CACA25800DCF69C /* PCClassTableViewCell.swift */,
+				452AFD4D1CACA25800DCF69C /* PCClassTableViewCell.xib */,
+			);
+			name = "Class View Controller";
+			sourceTree = "<group>";
+		};
 		4588E5A91C9EE9DF0065BEF2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,12 +133,13 @@
 			name = "Class Table View";
 			sourceTree = "<group>";
 		};
-		4588E5B61C9EFE770065BEF2 /* Categories */ = {
+		4588E5B61C9EFE770065BEF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4588E5B41C9EFE6E0065BEF2 /* PCLabel.swift */,
+				452AFD501CB0668200DCF69C /* PCLabel.swift */,
+				452AFD521CB066A900DCF69C /* PCView.swift */,
 			);
-			name = Categories;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		4588E5BC1C9F05A40065BEF2 /* Models */ = {
@@ -174,10 +196,11 @@
 			children = (
 				45DF04D61C9EC9F5005B6C8A /* AppDelegate.swift */,
 				4588E5BC1C9F05A40065BEF2 /* Models */,
-				4588E5B61C9EFE770065BEF2 /* Categories */,
+				4588E5B61C9EFE770065BEF2 /* Views */,
 				4588E5A91C9EE9DF0065BEF2 /* Extensions */,
 				4588E5B21C9EF4A80065BEF2 /* Home View Controller */,
 				4588E5BD1CA20D980065BEF2 /* Pitch View Controller */,
+				452AFD471CAC87BF00DCF69C /* Class View Controller */,
 				45DF04DD1C9EC9F5005B6C8A /* Assets.xcassets */,
 				45DF04DF1C9EC9F5005B6C8A /* LaunchScreen.storyboard */,
 				45DF04E21C9EC9F5005B6C8A /* Info.plist */,
@@ -257,10 +280,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				452AFD4F1CACA25800DCF69C /* PCClassTableViewCell.xib in Resources */,
 				4588E5AF1C9EEEFE0065BEF2 /* ClassTableViewCell.xib in Resources */,
 				45DF04E11C9EC9F5005B6C8A /* LaunchScreen.storyboard in Resources */,
 				459F450D1C9ECD1900DEDCED /* ProximaNova-Regular.otf in Resources */,
 				459F450F1C9ECD1900DEDCED /* Quicksand-Regular.ttf in Resources */,
+				452AFD4B1CAC880B00DCF69C /* ClassViewController.xib in Resources */,
 				4588E5C11CA20DCE0065BEF2 /* PitchViewController.xib in Resources */,
 				459F450C1C9ECD1900DEDCED /* ProximaNova-Light.otf in Resources */,
 				459F450E1C9ECD1900DEDCED /* Quicksand-Light.ttf in Resources */,
@@ -326,11 +351,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4568869A1CA6D01A00487D6E /* PCLesson.swift in Sources */,
+				452AFD511CB0668200DCF69C /* PCLabel.swift in Sources */,
 				4588E5AE1C9EEEFE0065BEF2 /* ClassTableViewCell.swift in Sources */,
-				4588E5B51C9EFE6F0065BEF2 /* PCLabel.swift in Sources */,
 				45DF04D91C9EC9F5005B6C8A /* HomeViewController.swift in Sources */,
+				452AFD4E1CACA25800DCF69C /* PCClassTableViewCell.swift in Sources */,
 				4588E5C31CA224E60065BEF2 /* UIViewController+Podclass.swift in Sources */,
+				452AFD4A1CAC880B00DCF69C /* ClassViewController.swift in Sources */,
 				4588E5AB1C9EEA130065BEF2 /* UIView+Podclass.swift in Sources */,
+				452AFD531CB066A900DCF69C /* PCView.swift in Sources */,
 				4588E5BA1C9F059A0065BEF2 /* PCClass.swift in Sources */,
 				45DF04D71C9EC9F5005B6C8A /* AppDelegate.swift in Sources */,
 				4588E5B11C9EF37D0065BEF2 /* NSObject+Podclass.swift in Sources */,

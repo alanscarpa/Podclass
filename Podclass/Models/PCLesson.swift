@@ -12,6 +12,7 @@ class PCLesson {
     
     var number = 0
     var title = ""
+    var isPlaying = false
     
     convenience init(number: Int, title: String) {
         self.init()
