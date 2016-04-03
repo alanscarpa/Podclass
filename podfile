@@ -1,3 +1,6 @@
 use_frameworks! 
 pod 'EasyAnimation'
-
+pod 'Alamofire'
+pod 'SVProgressHUD'
+pod 'Intrepid'
+pod 'PureLayout'

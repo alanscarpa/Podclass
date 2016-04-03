@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import Alamofire
+import Intrepid
+import PureLayout
+import SVProgressHUD
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        SVProgressHUD.setDefaultStyle(.Custom)
+        SVProgressHUD.setForegroundColor(UIColor.whiteColor())
+        SVProgressHUD.setBackgroundColor(UIColor.pcTransOrange())
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         return true
     }
 

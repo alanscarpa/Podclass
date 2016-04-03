@@ -16,6 +16,11 @@
 		456886971CA5F11900487D6E /* SyllabusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456886951CA5F11900487D6E /* SyllabusTableViewCell.swift */; };
 		456886981CA5F11900487D6E /* SyllabusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456886961CA5F11900487D6E /* SyllabusTableViewCell.xib */; };
 		4568869A1CA6D01A00487D6E /* PCLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456886991CA6D01A00487D6E /* PCLesson.swift */; };
+		4576081B1CB95E0300D13691 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576081A1CB95E0300D13691 /* APIKeys.swift */; };
+		457608221CBAB90700D13691 /* PCAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608211CBAB90700D13691 /* PCAudioPlayer.swift */; };
+		457608281CBC7E9400D13691 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608271CBC7E9400D13691 /* Constants.swift */; };
+		4576082B1CBC81D700D13691 /* PCMiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608291CBC81D700D13691 /* PCMiniPlayerView.swift */; };
+		4576082C1CBC81D700D13691 /* PCMiniPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */; };
 		4588E5AB1C9EEA130065BEF2 /* UIView+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5AA1C9EEA130065BEF2 /* UIView+Podclass.swift */; };
 		4588E5AE1C9EEEFE0065BEF2 /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5AC1C9EEEFE0065BEF2 /* ClassTableViewCell.swift */; };
 		4588E5AF1C9EEEFE0065BEF2 /* ClassTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4588E5AD1C9EEEFE0065BEF2 /* ClassTableViewCell.xib */; };
@@ -47,6 +52,12 @@
 		456886951CA5F11900487D6E /* SyllabusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SyllabusTableViewCell.swift; path = "Pitch View Controller/SyllabusTableViewCell.swift"; sourceTree = "<group>"; };
 		456886961CA5F11900487D6E /* SyllabusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SyllabusTableViewCell.xib; path = "Pitch View Controller/SyllabusTableViewCell.xib"; sourceTree = "<group>"; };
 		456886991CA6D01A00487D6E /* PCLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCLesson.swift; path = Models/PCLesson.swift; sourceTree = "<group>"; };
+		4576081A1CB95E0300D13691 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		4576081C1CB96F2D00D13691 /* Podclass-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Podclass-Bridging-Header.h"; sourceTree = "<group>"; };
+		457608211CBAB90700D13691 /* PCAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCAudioPlayer.swift; sourceTree = "<group>"; };
+		457608271CBC7E9400D13691 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		457608291CBC81D700D13691 /* PCMiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMiniPlayerView.swift; sourceTree = "<group>"; };
+		4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCMiniPlayerView.xib; sourceTree = "<group>"; };
 		4588E5AA1C9EEA130065BEF2 /* UIView+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Podclass.swift"; path = "Extensions/UIView+Podclass.swift"; sourceTree = "<group>"; };
 		4588E5AC1C9EEEFE0065BEF2 /* ClassTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
 		4588E5AD1C9EEEFE0065BEF2 /* ClassTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassTableViewCell.xib; sourceTree = "<group>"; };
@@ -101,6 +112,16 @@
 				452AFD4D1CACA25800DCF69C /* PCClassTableViewCell.xib */,
 			);
 			name = "Class View Controller";
+			sourceTree = "<group>";
+		};
+		457608201CBAB8D900D13691 /* Audio Player */ = {
+			isa = PBXGroup;
+			children = (
+				457608211CBAB90700D13691 /* PCAudioPlayer.swift */,
+				457608291CBC81D700D13691 /* PCMiniPlayerView.swift */,
+				4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */,
+			);
+			path = "Audio Player";
 			sourceTree = "<group>";
 		};
 		4588E5A91C9EE9DF0065BEF2 /* Extensions */ = {
@@ -194,7 +215,11 @@
 		45DF04D51C9EC9F5005B6C8A /* Podclass */ = {
 			isa = PBXGroup;
 			children = (
+				457608201CBAB8D900D13691 /* Audio Player */,
 				45DF04D61C9EC9F5005B6C8A /* AppDelegate.swift */,
+				4576081C1CB96F2D00D13691 /* Podclass-Bridging-Header.h */,
+				4576081A1CB95E0300D13691 /* APIKeys.swift */,
+				457608271CBC7E9400D13691 /* Constants.swift */,
 				4588E5BC1C9F05A40065BEF2 /* Models */,
 				4588E5B61C9EFE770065BEF2 /* Views */,
 				4588E5A91C9EE9DF0065BEF2 /* Extensions */,
@@ -288,6 +313,7 @@
 				452AFD4B1CAC880B00DCF69C /* ClassViewController.xib in Resources */,
 				4588E5C11CA20DCE0065BEF2 /* PitchViewController.xib in Resources */,
 				459F450C1C9ECD1900DEDCED /* ProximaNova-Light.otf in Resources */,
+				4576082C1CBC81D700D13691 /* PCMiniPlayerView.xib in Resources */,
 				459F450E1C9ECD1900DEDCED /* Quicksand-Light.ttf in Resources */,
 				45DF04DE1C9EC9F5005B6C8A /* Assets.xcassets in Resources */,
 				456886981CA5F11900487D6E /* SyllabusTableViewCell.xib in Resources */,
@@ -350,7 +376,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4576082B1CBC81D700D13691 /* PCMiniPlayerView.swift in Sources */,
 				4568869A1CA6D01A00487D6E /* PCLesson.swift in Sources */,
+				457608281CBC7E9400D13691 /* Constants.swift in Sources */,
 				452AFD511CB0668200DCF69C /* PCLabel.swift in Sources */,
 				4588E5AE1C9EEEFE0065BEF2 /* ClassTableViewCell.swift in Sources */,
 				45DF04D91C9EC9F5005B6C8A /* HomeViewController.swift in Sources */,
@@ -364,7 +392,9 @@
 				4588E5B11C9EF37D0065BEF2 /* NSObject+Podclass.swift in Sources */,
 				456886971CA5F11900487D6E /* SyllabusTableViewCell.swift in Sources */,
 				4588E5B81C9F03F40065BEF2 /* UIColor+Podclass.swift in Sources */,
+				4576081B1CB95E0300D13691 /* APIKeys.swift in Sources */,
 				4588E5C01CA20DCE0065BEF2 /* PitchViewController.swift in Sources */,
+				457608221CBAB90700D13691 /* PCAudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +512,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.podclass.Podclass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Podclass/Podclass-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -496,6 +527,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.podclass.Podclass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Podclass/Podclass-Bridging-Header.h";
 			};
 			name = Release;
 		};

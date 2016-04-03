@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassViewController" customModule="Podclass" customModuleProvider="target">
@@ -11,10 +10,6 @@
                 <outlet property="classTableView" destination="9OK-f4-LMX" id="vCu-Z6-yiK"/>
                 <outlet property="classTableViewHeightConstraint" destination="Ka5-x4-D8C" id="fBy-lV-dfT"/>
                 <outlet property="classTitleLabel" destination="W0u-Pm-luu" id="YM4-m3-IX7"/>
-                <outlet property="nowPlayingBackgroundView" destination="pK0-tJ-lVZ" id="JQ0-b9-nDP"/>
-                <outlet property="nowPlayingButton" destination="Xcc-av-Xf8" id="7jp-Nf-asN"/>
-                <outlet property="nowPlayingTrackName" destination="v5f-Xj-qIs" id="jg2-QI-Erl"/>
-                <outlet property="nowPlayingTrackNumber" destination="teh-Un-Exz" id="zHM-ix-iTJ"/>
                 <outlet property="view" destination="ED1-Ch-Pgu" id="hwB-TN-zrb"/>
             </connections>
         </placeholder>
@@ -69,12 +64,14 @@
                                         </mask>
                                     </variation>
                                 </label>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9OK-f4-LMX" userLabel="Class Table View">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9OK-f4-LMX" userLabel="Class Table View">
                                     <rect key="frame" x="0.0" y="65" width="320" height="300"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="300" id="Ka5-x4-D8C"/>
                                     </constraints>
+                                    <color key="separatorColor" red="0.99215686270000003" green="0.3803921569" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <connections>
                                         <outlet property="dataSource" destination="-1" id="CQS-J1-nzF"/>
                                         <outlet property="delegate" destination="-1" id="8pK-pY-vh5"/>
@@ -126,71 +123,13 @@
                         <constraint firstAttribute="bottom" secondItem="4c4-sR-laF" secondAttribute="bottom" id="eCA-u4-GjK"/>
                     </constraints>
                 </scrollView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pK0-tJ-lVZ" userLabel="Now Playing Background View" customClass="PCView" customModule="Podclass" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="489" width="320" height="70"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v08-AB-vre" userLabel="expandButton">
-                            <rect key="frame" x="16" y="13" width="44" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="v08-AB-vre" secondAttribute="height" multiplier="1:1" id="iS0-Xg-P5U"/>
-                                <constraint firstAttribute="height" constant="44" id="uJM-VX-6eo"/>
-                            </constraints>
-                            <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
-                            <state key="normal" image="upArrow"/>
-                        </button>
-                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xcc-av-Xf8" userLabel="playButton">
-                            <rect key="frame" x="260" y="13" width="44" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="Xcc-av-Xf8" secondAttribute="height" multiplier="1:1" id="Fbg-RK-9V3"/>
-                                <constraint firstAttribute="height" constant="44" id="ZvQ-ag-wM7"/>
-                            </constraints>
-                            <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                            <state key="normal" image="playButton"/>
-                            <connections>
-                                <action selector="nowPlayingButtonTapped:" destination="-1" eventType="touchUpInside" id="9JY-VZ-mkB"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of the lesson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5f-Xj-qIs">
-                            <rect key="frame" x="90" y="25" width="170" height="19.5"/>
-                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
-                            <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99)." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teh-Un-Exz">
-                            <rect key="frame" x="60" y="25" width="30" height="19.5"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="30" id="eAv-3d-5li"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
-                            <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="v5f-Xj-qIs" firstAttribute="leading" secondItem="teh-Un-Exz" secondAttribute="trailing" id="77M-ok-iZm"/>
-                        <constraint firstItem="Xcc-av-Xf8" firstAttribute="leading" secondItem="v5f-Xj-qIs" secondAttribute="trailing" id="8cf-4N-okq"/>
-                        <constraint firstItem="Xcc-av-Xf8" firstAttribute="width" secondItem="Xcc-av-Xf8" secondAttribute="height" multiplier="1:1" id="F2h-Kc-t6F"/>
-                        <constraint firstItem="Xcc-av-Xf8" firstAttribute="centerY" secondItem="pK0-tJ-lVZ" secondAttribute="centerY" id="OjS-It-Nme"/>
-                        <constraint firstItem="v5f-Xj-qIs" firstAttribute="centerY" secondItem="teh-Un-Exz" secondAttribute="centerY" id="TbI-59-UoE"/>
-                        <constraint firstItem="teh-Un-Exz" firstAttribute="centerY" secondItem="v08-AB-vre" secondAttribute="centerY" id="Wot-hO-bwa"/>
-                        <constraint firstAttribute="trailing" secondItem="Xcc-av-Xf8" secondAttribute="trailing" constant="16" id="dbz-F3-U3p"/>
-                        <constraint firstAttribute="height" constant="70" id="gCS-bm-cDb"/>
-                        <constraint firstItem="teh-Un-Exz" firstAttribute="leading" secondItem="v08-AB-vre" secondAttribute="trailing" id="hvh-co-sAo"/>
-                        <constraint firstItem="v08-AB-vre" firstAttribute="centerY" secondItem="pK0-tJ-lVZ" secondAttribute="centerY" id="lEZ-nw-CzH"/>
-                        <constraint firstItem="v08-AB-vre" firstAttribute="leading" secondItem="pK0-tJ-lVZ" secondAttribute="leading" constant="16" id="nIf-H9-ahA"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hdN-pq-TP1" secondAttribute="bottom" id="0O0-dA-Jvf"/>
                 <constraint firstAttribute="bottom" secondItem="B6S-Xx-XQ2" secondAttribute="bottom" id="0aD-8E-Xh0"/>
                 <constraint firstItem="B6S-Xx-XQ2" firstAttribute="leading" secondItem="ED1-Ch-Pgu" secondAttribute="leading" id="Dh8-3c-E7X"/>
-                <constraint firstAttribute="bottom" secondItem="pK0-tJ-lVZ" secondAttribute="bottom" id="KSB-1j-DZt"/>
-                <constraint firstItem="pK0-tJ-lVZ" firstAttribute="leading" secondItem="ED1-Ch-Pgu" secondAttribute="leading" id="Lff-h2-hhp"/>
                 <constraint firstItem="hdN-pq-TP1" firstAttribute="leading" secondItem="ED1-Ch-Pgu" secondAttribute="leading" id="Mk2-Jx-b3s"/>
-                <constraint firstAttribute="trailing" secondItem="pK0-tJ-lVZ" secondAttribute="trailing" id="Rjf-up-Koh"/>
                 <constraint firstAttribute="trailing" secondItem="hdN-pq-TP1" secondAttribute="trailing" id="VkS-rF-aKZ"/>
                 <constraint firstItem="hdN-pq-TP1" firstAttribute="top" secondItem="ED1-Ch-Pgu" secondAttribute="top" constant="20" id="moZ-UH-l2u"/>
                 <constraint firstItem="B6S-Xx-XQ2" firstAttribute="top" secondItem="ED1-Ch-Pgu" secondAttribute="top" id="tQU-cg-hXe"/>
@@ -204,8 +143,6 @@
     <resources>
         <image name="backArrow" width="20" height="20"/>
         <image name="girlCoffee" width="5350" height="3567"/>
-        <image name="playButton" width="512" height="512"/>
         <image name="tableViewBackground" width="1800" height="3000"/>
-        <image name="upArrow" width="512" height="512"/>
     </resources>
 </document>

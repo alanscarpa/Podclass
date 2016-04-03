@@ -41,6 +41,10 @@ class HomeViewController: UIViewController {
     }
     
     private func setUp() {
+        let miniPlayerView = PCMiniPlayerView.ip_fromNib()
+        let window = UIApplication.sharedApplication().keyWindow
+        window?.addSubview(miniPlayerView)
+        
         let statusBarBackgroundView = UIView(frame:
             CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: 20.0)
         )
@@ -63,13 +67,22 @@ class HomeViewController: UIViewController {
         class1.whatYouLearn = "A real sense of what you will be asked in your Product Management interview. For each of the commonly asked questions, we'll go over what interviewers are looking for in a response as well as some sample responses."
         class1.whoItsFor = "Aspiring PMs who soon face their first PM interview. Folks who've become PMs at their current company by way of promotion and must now face their first real PM interview with another company. "
         let lesson1 = PCLesson(number: 1, title: "Why do you want to work here?")
+        lesson1.trackID = "0B4p7BGhD3xX5RkFST3RPdUVyb0E"
         let lesson2 = PCLesson(number: 2, title: "How would you improve our product?")
+        lesson2.trackID = "0B4p7BGhD3xX5X1V6UEtNcjRyMUE"
         let lesson3 = PCLesson(number: 3, title: "What's your favorite product and why?")
+        lesson3.trackID = "0B4p7BGhD3xX5QzU4YVg3WnNVek0"
         let lesson4 = PCLesson(number: 4, title: "What are the 3 metrics we care about?")
+        lesson4.trackID = "0B4p7BGhD3xX5NFp2S2Z4WjlQMk0"
         let lesson5 = PCLesson(number: 5, title: "How do you prioritize between X and Y?")
+        lesson5.trackID = "0B4p7BGhD3xX5cTV6YXQwT1Jwc0k"
         let lesson6 = PCLesson(number: 6, title: "How would you test a feature?")
+        lesson6.trackID = "0B4p7BGhD3xX5VENnZEEtb1lfNDA"
         let lesson7 = PCLesson(number: 7, title: "Have you had to convince someone who didn't report to you to do something?")
+        lesson7.trackID = "0B4p7BGhD3xX5RkFST3RPdUVyb0E"
         let lesson8 = PCLesson(number: 8, title: "Do you have any questions for me?")
+        lesson8.trackID = "0B4p7BGhD3xX5X1V6UEtNcjRyMUE"
+        
         class1.syllabus = [lesson1, lesson2, lesson3, lesson4, lesson5, lesson6, lesson7, lesson8]
         class1.producedBy = "Podclass, in conjunction with Madhu Punjabi, Product Manager @ Pinterest"
         let class2 = PCClass()

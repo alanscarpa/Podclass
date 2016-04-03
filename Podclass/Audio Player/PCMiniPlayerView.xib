@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uI3-oy-XFb" userLabel="Now Playing Background View" customClass="PCMiniPlayerView" customModule="Podclass" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTq-eT-J0P" userLabel="expandButton">
+                    <rect key="frame" x="16" y="13" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="3FD-Fw-2ZB"/>
+                        <constraint firstAttribute="width" secondItem="hTq-eT-J0P" secondAttribute="height" multiplier="1:1" id="zRI-ec-lwC"/>
+                    </constraints>
+                    <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                    <state key="normal" image="upArrow"/>
+                    <connections>
+                        <action selector="expandButtonTapped" destination="uI3-oy-XFb" eventType="touchUpInside" id="bRv-T3-UMF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVJ-C9-Enh" userLabel="playButton">
+                    <rect key="frame" x="540" y="13" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="tVJ-C9-Enh" secondAttribute="height" multiplier="1:1" id="6kU-Zc-3T5"/>
+                        <constraint firstAttribute="height" constant="44" id="k56-ar-kZl"/>
+                    </constraints>
+                    <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                    <state key="normal" image="playButton"/>
+                    <connections>
+                        <action selector="playButtonTapped" destination="uI3-oy-XFb" eventType="touchUpInside" id="FtR-DO-h0U"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of the lesson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Gm-DA-UK0">
+                    <rect key="frame" x="90" y="25" width="450" height="19.5"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                    <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99)." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcD-OZ-2vi">
+                    <rect key="frame" x="60" y="25" width="30" height="19.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="ejN-pp-gn1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                    <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="tVJ-C9-Enh" secondAttribute="trailing" constant="16" id="E1j-mo-KzT"/>
+                <constraint firstItem="6Gm-DA-UK0" firstAttribute="centerY" secondItem="QcD-OZ-2vi" secondAttribute="centerY" id="FQb-pf-v1p"/>
+                <constraint firstAttribute="height" constant="70" id="Nf6-Ox-9NP"/>
+                <constraint firstItem="6Gm-DA-UK0" firstAttribute="leading" secondItem="QcD-OZ-2vi" secondAttribute="trailing" id="QoJ-dy-ccn"/>
+                <constraint firstItem="hTq-eT-J0P" firstAttribute="leading" secondItem="uI3-oy-XFb" secondAttribute="leading" constant="16" id="VO0-Ba-Z5a"/>
+                <constraint firstItem="tVJ-C9-Enh" firstAttribute="leading" secondItem="6Gm-DA-UK0" secondAttribute="trailing" id="Wil-lc-3bC"/>
+                <constraint firstItem="QcD-OZ-2vi" firstAttribute="leading" secondItem="hTq-eT-J0P" secondAttribute="trailing" id="cfj-YA-43R"/>
+                <constraint firstItem="tVJ-C9-Enh" firstAttribute="centerY" secondItem="uI3-oy-XFb" secondAttribute="centerY" id="gJm-Hx-7FZ"/>
+                <constraint firstItem="hTq-eT-J0P" firstAttribute="centerY" secondItem="uI3-oy-XFb" secondAttribute="centerY" id="mXj-VG-7Mk"/>
+                <constraint firstItem="QcD-OZ-2vi" firstAttribute="centerY" secondItem="hTq-eT-J0P" secondAttribute="centerY" id="u5u-7L-qll"/>
+                <constraint firstItem="tVJ-C9-Enh" firstAttribute="width" secondItem="tVJ-C9-Enh" secondAttribute="height" multiplier="1:1" id="xsg-zE-tQ5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="expandButton" destination="hTq-eT-J0P" id="zzo-BF-nDo"/>
+                <outlet property="lessonNumberLabel" destination="QcD-OZ-2vi" id="xwA-Rz-K3i"/>
+                <outlet property="lessonTitleLabel" destination="6Gm-DA-UK0" id="Vuw-1a-Tn4"/>
+                <outlet property="playButton" destination="tVJ-C9-Enh" id="fei-QC-O3Y"/>
+            </connections>
+            <point key="canvasLocation" x="513" y="-173.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="playButton" width="512" height="512"/>
+        <image name="upArrow" width="512" height="512"/>
+    </resources>
+</document>
