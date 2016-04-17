@@ -16,5 +16,6 @@ class PCClass {
     var whoItsFor = ""
     var syllabus = [PCLesson]()
     var producedBy = ""
+    var hashTag = ""
 }
 
