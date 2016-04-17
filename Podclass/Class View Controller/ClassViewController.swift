@@ -7,25 +7,50 @@
 //
 
 import UIKit
+import Firebase
+import Alamofire
+import SVProgressHUD
 
 class ClassViewController: UIViewController {
 
     var currentClass = PCClass()
     var currentlySelectedCell: PCClassTableViewCell?
     var lastTappedIndexPath: NSIndexPath?
-    
+    let audioManager = PCAudioManager.sharedInstance
+
     @IBOutlet private weak var classTitleLabel: UILabel!
     @IBOutlet private weak var classTableView: UITableView!
     @IBOutlet private weak var classTableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var nowPlayingTrackName: UILabel!
-    @IBOutlet private weak var nowPlayingTrackNumber: UILabel!
-    @IBOutlet weak var nowPlayingButton: UIButton!
-    @IBOutlet weak var nowPlayingBackgroundView: PCView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpTableView()
-        self.setUpUI()
+        self.audioPlayerSync()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.miniPlayerPlayPauseButtonTapped(_:)), name: kMiniPlayerPlayPauseButtonTapped, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.audioStartedPlaying), name: kAudioStartedPlaying, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.audioStoppedPlaying), name: kAudioStoppedPlaying, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.audioFailed), name: kAudioFailed, object: nil)
+    }
+    
+    func audioStartedPlaying() {
+        SVProgressHUD.dismiss()
+    }
+    
+    func audioStoppedPlaying() {
+        SVProgressHUD.dismiss()
+    }
+    
+    func audioFailed() {
+        // TODO: Show alert and handle this error state
+        SVProgressHUD.dismiss()
+    }
+        
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.audioManager.hasCurrentTracks {
+            NSNotificationCenter.defaultCenter().postNotificationName(kShowMiniPlayer, object: nil)
+        }
+        SVProgressHUD.dismiss()
     }
     
     override func viewDidLayoutSubviews() {
@@ -40,16 +65,24 @@ class ClassViewController: UIViewController {
         self.classTableView.registerNib(UINib(nibName: PCClassTableViewCell.className(), bundle: nil), forCellReuseIdentifier: PCClassTableViewCell.className())
     }
     
-    func setUpUI() {
-        self.nowPlayingBackgroundView.topBorderColor = UIColor.pcOrange()
+    func audioPlayerSync() {
+        if self.audioManager.hasClass(self.currentClass) {
+            self.lastTappedIndexPath = self.audioManager.currentLesson.indexPath
+        }
+    }
+    
+    func miniPlayerPlayPauseButtonTapped(notification: NSNotification) {
+        let indexPath = notification.userInfo!["indexPath"] as! NSIndexPath
+        let cellToUpdate = self.classTableView.cellForRowAtIndexPath(indexPath) as! PCClassTableViewCell
+        self.updateCellStatus(cellToUpdate, indexPath: indexPath)
     }
 
-    // Actions
+    // MARK: Actions
     
     @IBAction func backButtonTapped() {
         self.navigationController?.popViewControllerAnimated(true)
+        NSNotificationCenter.defaultCenter().postNotificationName(kHideMiniPlayer, object: nil)
     }
-    
     
     // MARK: UITableViewDataSource
     
@@ -57,55 +90,50 @@ class ClassViewController: UIViewController {
         return self.currentClass.syllabus.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:
+        NSIndexPath) -> UITableViewCell {
+        self.currentClass.syllabus[indexPath.row].indexPath = indexPath
+        let lessonForRow = self.currentClass.syllabus[indexPath.row]
                 let cell = tableView.dequeueReusableCellWithIdentifier(PCClassTableViewCell.className(), forIndexPath: indexPath) as! PCClassTableViewCell
-        cell.configureForLesson(self.currentClass.syllabus[indexPath.row])
+        cell.configureForLesson(lessonForRow)
+        cell.isActive = self.audioManager.isPlayingLesson(lessonForRow)
+        if cell.isActive {
+            self.lastTappedIndexPath = indexPath
+        }
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsetsZero
+        cell.layoutMargins = UIEdgeInsetsZero
         return cell
     }
     
     // MARK: UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let tappedCell = tableView.cellForRowAtIndexPath(indexPath) as! PCClassTableViewCell
-        self.updateCellStatus(tappedCell)
-        self.updateNowPlayingPlayer(tappedCell.lesson)
-        if tappedCell == self.currentlySelectedCell {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            self.currentlySelectedCell = nil
-        } else {
-            self.currentlySelectedCell = tappedCell
+        SVProgressHUD.show()
+        self.audioManager.currentClass = self.currentClass
+        self.updateCellStatus(self.classTableView.cellForRowAtIndexPath(indexPath) as! PCClassTableViewCell, indexPath: indexPath)
+        guard let lastIndexPath = self.lastTappedIndexPath where lastIndexPath != indexPath else {
+            self.lastTappedIndexPath = indexPath
+            return
         }
+        let cell = self.classTableView.cellForRowAtIndexPath(lastIndexPath) as! PCClassTableViewCell
+        self.classTableView.deselectRowAtIndexPath(lastIndexPath, animated: true)
+        cell.isActive = false
         self.lastTappedIndexPath = indexPath
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        self.updateCellStatus(tableView.cellForRowAtIndexPath(indexPath) as! PCClassTableViewCell)
-    }
     
-    func updateCellStatus(tappedCell: PCClassTableViewCell) {
+    // MARK: Helpers
+    
+    func updateCellStatus(tappedCell: PCClassTableViewCell, indexPath: NSIndexPath) {
         tappedCell.isActive = !tappedCell.isActive
-    }
-    
-    func updateNowPlayingPlayer(lesson: PCLesson) {
-        self.nowPlayingTrackNumber.text = "\(lesson.number))."
-        self.nowPlayingTrackName.text = lesson.title
-        let playIconImage = lesson.isPlaying ? UIImage(named: "pauseButton") : UIImage(named: "playButton")
-        self.nowPlayingButton.setImage(playIconImage, forState: .Normal)
-    }
-
-    @IBAction func nowPlayingButtonTapped(sender: AnyObject) {
-        if let currentlySelectedCell = self.currentlySelectedCell {
-            currentlySelectedCell.isActive = !currentlySelectedCell.lesson.isPlaying
-            self.updateNowPlayingPlayer(currentlySelectedCell.lesson)
-            if let indexPath = self.classTableView.indexPathForCell(currentlySelectedCell) {
-                classTableView.deselectRowAtIndexPath(indexPath, animated: true)
-            }
+        NSOperationQueue.mainQueue().addOperationWithBlock { 
+            self.audioManager.playLesson(self.currentClass.syllabus[indexPath.row])
+        }
+        if tappedCell == self.currentlySelectedCell {
+            self.classTableView.deselectRowAtIndexPath(indexPath, animated: true)
             self.currentlySelectedCell = nil
-        } else if let indexPath = self.lastTappedIndexPath {
-            let tappedCell = self.classTableView.cellForRowAtIndexPath(indexPath) as! PCClassTableViewCell
-            self.classTableView.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: .None)
-            self.updateCellStatus(tappedCell)
-            self.updateNowPlayingPlayer(tappedCell.lesson)
+        } else {
             self.currentlySelectedCell = tappedCell
         }
     }
