@@ -66,6 +66,7 @@ class HomeViewController: UIViewController {
         class1.summary = "What are the most commonly asked Product Management interview questions? How can you best prepare so that you can ace your interview? Walk through the 8 Most Common Interview Questions, according to Madhu Punjabi - Product Manager at Pinterest."
         class1.whatYouLearn = "A real sense of what you will be asked in your Product Management interview. For each of the commonly asked questions, we'll go over what interviewers are looking for in a response as well as some sample responses."
         class1.whoItsFor = "Aspiring PMs who soon face their first PM interview. Folks who've become PMs at their current company by way of promotion and must now face their first real PM interview with another company. "
+        class1.hashTag = "#PM-101"
         let lesson1 = PCLesson(number: 1, title: "Why do you want to work here?")
         lesson1.trackID = "0B4p7BGhD3xX5RkFST3RPdUVyb0E"
         let lesson2 = PCLesson(number: 2, title: "How would you improve our product?")

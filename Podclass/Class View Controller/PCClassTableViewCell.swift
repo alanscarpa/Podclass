@@ -25,8 +25,7 @@ class PCClassTableViewCell: UITableViewCell {
 
     func configureForLesson(lesson: PCLesson) {
         self.lesson = lesson
-        
-        self.lessonNumberLabel.text = "\(lesson.number))."
+        self.lessonNumberLabel.text = "\(lesson.number)"
         self.lessonTitleLabel.text = "\(lesson.title)"
     }
 

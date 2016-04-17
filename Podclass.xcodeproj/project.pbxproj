@@ -21,6 +21,7 @@
 		457608281CBC7E9400D13691 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608271CBC7E9400D13691 /* Constants.swift */; };
 		4576082B1CBC81D700D13691 /* PCMiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608291CBC81D700D13691 /* PCMiniPlayerView.swift */; };
 		4576082C1CBC81D700D13691 /* PCMiniPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */; };
+		457608321CC4478300D13691 /* PCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608311CC4478300D13691 /* PCButton.swift */; };
 		4588E5AB1C9EEA130065BEF2 /* UIView+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5AA1C9EEA130065BEF2 /* UIView+Podclass.swift */; };
 		4588E5AE1C9EEEFE0065BEF2 /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5AC1C9EEEFE0065BEF2 /* ClassTableViewCell.swift */; };
 		4588E5AF1C9EEEFE0065BEF2 /* ClassTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4588E5AD1C9EEEFE0065BEF2 /* ClassTableViewCell.xib */; };
@@ -58,6 +59,7 @@
 		457608271CBC7E9400D13691 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		457608291CBC81D700D13691 /* PCMiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMiniPlayerView.swift; sourceTree = "<group>"; };
 		4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCMiniPlayerView.xib; sourceTree = "<group>"; };
+		457608311CC4478300D13691 /* PCButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCButton.swift; path = Views/PCButton.swift; sourceTree = "<group>"; };
 		4588E5AA1C9EEA130065BEF2 /* UIView+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Podclass.swift"; path = "Extensions/UIView+Podclass.swift"; sourceTree = "<group>"; };
 		4588E5AC1C9EEEFE0065BEF2 /* ClassTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
 		4588E5AD1C9EEEFE0065BEF2 /* ClassTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassTableViewCell.xib; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				452AFD501CB0668200DCF69C /* PCLabel.swift */,
+				457608311CC4478300D13691 /* PCButton.swift */,
 				452AFD521CB066A900DCF69C /* PCView.swift */,
 			);
 			name = Views;
@@ -380,6 +383,7 @@
 				4568869A1CA6D01A00487D6E /* PCLesson.swift in Sources */,
 				457608281CBC7E9400D13691 /* Constants.swift in Sources */,
 				452AFD511CB0668200DCF69C /* PCLabel.swift in Sources */,
+				457608321CC4478300D13691 /* PCButton.swift in Sources */,
 				4588E5AE1C9EEEFE0065BEF2 /* ClassTableViewCell.swift in Sources */,
 				45DF04D91C9EC9F5005B6C8A /* HomeViewController.swift in Sources */,
 				452AFD4E1CACA25800DCF69C /* PCClassTableViewCell.swift in Sources */,

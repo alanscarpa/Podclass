@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="20" width="320" height="539"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4c4-sR-laF" userLabel="Content View">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="543.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="572.5"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girlCoffee" translatesAutoresizingMaskIntoConstraints="NO" id="mmR-jh-iHs">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
@@ -77,24 +77,35 @@
                                         <outlet property="delegate" destination="-1" id="8pK-pY-vh5"/>
                                     </connections>
                                 </tableView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join The Discussion!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZd-5L-Qhf">
-                                    <rect key="frame" x="78.5" y="435" width="163.5" height="23.5"/>
-                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It's better to learn with friends.  Chat with us and others about what you're learning.  Ask questions too!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xp-k3-wKL">
+                                    <rect key="frame" x="16" y="389" width="288" height="70"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjM-D5-Zev" customClass="PCButton" customModule="Podclass" customModuleProvider="target">
+                                    <rect key="frame" x="88" y="483" width="145" height="33"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="15"/>
+                                    <state key="normal" title="Join The Discussion!"/>
+                                    <connections>
+                                        <action selector="discussionButtonTapped" destination="-1" eventType="touchUpInside" id="7jh-6L-yrv"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="6xp-k3-wKL" firstAttribute="leading" secondItem="4c4-sR-laF" secondAttribute="leading" constant="16" id="7Kb-bC-uI8"/>
                                 <constraint firstItem="9OK-f4-LMX" firstAttribute="leading" secondItem="4c4-sR-laF" secondAttribute="leading" id="AfP-1X-YiI"/>
-                                <constraint firstItem="bZd-5L-Qhf" firstAttribute="centerX" secondItem="4c4-sR-laF" secondAttribute="centerX" id="EQe-46-XVb"/>
+                                <constraint firstAttribute="bottom" secondItem="UjM-D5-Zev" secondAttribute="bottom" constant="56.5" id="CYS-Eb-uJe"/>
+                                <constraint firstItem="UjM-D5-Zev" firstAttribute="top" secondItem="9OK-f4-LMX" secondAttribute="bottom" constant="92" id="Fxi-0i-s0j"/>
+                                <constraint firstItem="UjM-D5-Zev" firstAttribute="centerX" secondItem="4c4-sR-laF" secondAttribute="centerX" id="Gbs-3q-PbF"/>
                                 <constraint firstItem="O4Q-ce-G0A" firstAttribute="leading" secondItem="mmR-jh-iHs" secondAttribute="leading" id="Hri-8b-wVn"/>
                                 <constraint firstItem="9OK-f4-LMX" firstAttribute="top" secondItem="mmR-jh-iHs" secondAttribute="bottom" id="Lrb-rm-uHb"/>
                                 <constraint firstAttribute="bottom" secondItem="9OK-f4-LMX" secondAttribute="bottom" constant="100" id="M3k-EN-gsc"/>
                                 <constraint firstItem="W0u-Pm-luu" firstAttribute="height" secondItem="mmR-jh-iHs" secondAttribute="height" id="OXe-gm-NA1"/>
-                                <constraint firstItem="bZd-5L-Qhf" firstAttribute="top" secondItem="9OK-f4-LMX" secondAttribute="bottom" constant="70" id="QuS-SM-ePu"/>
-                                <constraint firstAttribute="bottom" secondItem="bZd-5L-Qhf" secondAttribute="bottom" constant="85" id="SHr-2D-f6F"/>
+                                <constraint firstAttribute="trailing" secondItem="6xp-k3-wKL" secondAttribute="trailing" constant="16" id="RBq-4S-dAW"/>
                                 <constraint firstItem="O4Q-ce-G0A" firstAttribute="top" secondItem="mmR-jh-iHs" secondAttribute="top" id="W3H-Uq-HJM"/>
+                                <constraint firstItem="UjM-D5-Zev" firstAttribute="top" secondItem="6xp-k3-wKL" secondAttribute="bottom" constant="24" id="ZL8-pw-w2T"/>
                                 <constraint firstItem="W0u-Pm-luu" firstAttribute="centerY" secondItem="f0P-L5-BGt" secondAttribute="centerY" id="bWR-5f-fjL"/>
                                 <constraint firstAttribute="trailing" secondItem="W0u-Pm-luu" secondAttribute="trailing" constant="12" id="dfa-Na-Rq1"/>
                                 <constraint firstItem="O4Q-ce-G0A" firstAttribute="bottom" secondItem="mmR-jh-iHs" secondAttribute="bottom" id="eHF-UK-gTq"/>
@@ -106,11 +117,13 @@
                                 <constraint firstItem="mmR-jh-iHs" firstAttribute="top" secondItem="4c4-sR-laF" secondAttribute="top" id="ptd-kE-nsY"/>
                                 <constraint firstItem="O4Q-ce-G0A" firstAttribute="trailing" secondItem="mmR-jh-iHs" secondAttribute="trailing" id="sw0-UG-6n7"/>
                                 <constraint firstItem="mmR-jh-iHs" firstAttribute="leading" secondItem="4c4-sR-laF" secondAttribute="leading" id="wa9-HW-Idu"/>
+                                <constraint firstItem="6xp-k3-wKL" firstAttribute="top" secondItem="9OK-f4-LMX" secondAttribute="bottom" constant="24" id="wlf-NC-Jf8"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="OXe-gm-NA1"/>
                                     <exclude reference="M3k-EN-gsc"/>
+                                    <exclude reference="Fxi-0i-s0j"/>
                                 </mask>
                             </variation>
                         </view>

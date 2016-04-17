@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Firebase
 import Alamofire
 import SVProgressHUD
+import Social
 
 class ClassViewController: UIViewController {
 
@@ -138,4 +138,15 @@ class ClassViewController: UIViewController {
         }
     }
 
+    @IBAction func discussionButtonTapped() {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+            let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            vc.setInitialText("@podclassxyz \(currentClass.hashTag)")
+            presentViewController(vc, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Twitter Required", message: "We use Twitter to chat.  If you have an account, go to Settings and connect.  Otherwise, sign up with Twitter and let's get tweeting!", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
 }
