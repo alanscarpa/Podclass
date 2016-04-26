@@ -7,34 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		452AFD4A1CAC880B00DCF69C /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452AFD481CAC880B00DCF69C /* ClassViewController.swift */; };
-		452AFD4B1CAC880B00DCF69C /* ClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452AFD491CAC880B00DCF69C /* ClassViewController.xib */; };
-		452AFD4E1CACA25800DCF69C /* PCClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452AFD4C1CACA25800DCF69C /* PCClassTableViewCell.swift */; };
-		452AFD4F1CACA25800DCF69C /* PCClassTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452AFD4D1CACA25800DCF69C /* PCClassTableViewCell.xib */; };
-		452AFD511CB0668200DCF69C /* PCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452AFD501CB0668200DCF69C /* PCLabel.swift */; };
-		452AFD531CB066A900DCF69C /* PCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452AFD521CB066A900DCF69C /* PCView.swift */; };
-		456886971CA5F11900487D6E /* SyllabusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456886951CA5F11900487D6E /* SyllabusTableViewCell.swift */; };
-		456886981CA5F11900487D6E /* SyllabusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456886961CA5F11900487D6E /* SyllabusTableViewCell.xib */; };
-		4568869A1CA6D01A00487D6E /* PCLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456886991CA6D01A00487D6E /* PCLesson.swift */; };
-		4576081B1CB95E0300D13691 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576081A1CB95E0300D13691 /* APIKeys.swift */; };
 		457608221CBAB90700D13691 /* PCAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608211CBAB90700D13691 /* PCAudioPlayer.swift */; };
-		457608281CBC7E9400D13691 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608271CBC7E9400D13691 /* Constants.swift */; };
 		4576082B1CBC81D700D13691 /* PCMiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608291CBC81D700D13691 /* PCMiniPlayerView.swift */; };
 		4576082C1CBC81D700D13691 /* PCMiniPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */; };
-		457608321CC4478300D13691 /* PCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608311CC4478300D13691 /* PCButton.swift */; };
-		4588E5AB1C9EEA130065BEF2 /* UIView+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5AA1C9EEA130065BEF2 /* UIView+Podclass.swift */; };
+		457608371CC4FD6500D13691 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608341CC4FD6500D13691 /* APIKeys.swift */; };
+		457608381CC4FD6500D13691 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608351CC4FD6500D13691 /* Constants.swift */; };
+		457608401CC5009F00D13691 /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4576083C1CC5009F00D13691 /* ProximaNova-Light.otf */; };
+		457608411CC5009F00D13691 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4576083D1CC5009F00D13691 /* ProximaNova-Regular.otf */; };
+		457608421CC5009F00D13691 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4576083E1CC5009F00D13691 /* Quicksand-Light.ttf */; };
+		457608431CC5009F00D13691 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4576083F1CC5009F00D13691 /* Quicksand-Regular.ttf */; };
+		457608461CC500B800D13691 /* PCClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608441CC500B800D13691 /* PCClass.swift */; };
+		457608471CC500B800D13691 /* PCLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608451CC500B800D13691 /* PCLesson.swift */; };
+		4576084B1CC500D200D13691 /* PCButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608481CC500D200D13691 /* PCButton.swift */; };
+		4576084C1CC500D200D13691 /* PCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608491CC500D200D13691 /* PCLabel.swift */; };
+		4576084D1CC500D200D13691 /* PCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576084A1CC500D200D13691 /* PCView.swift */; };
+		457608521CC500EF00D13691 /* NSObject+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576084E1CC500EF00D13691 /* NSObject+Podclass.swift */; };
+		457608531CC500EF00D13691 /* UIColor+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576084F1CC500EF00D13691 /* UIColor+Podclass.swift */; };
+		457608541CC500EF00D13691 /* UIView+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608501CC500EF00D13691 /* UIView+Podclass.swift */; };
+		457608551CC500EF00D13691 /* UIViewController+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608511CC500EF00D13691 /* UIViewController+Podclass.swift */; };
+		4576085A1CC5010900D13691 /* PitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608561CC5010900D13691 /* PitchViewController.swift */; };
+		4576085B1CC5010900D13691 /* PitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457608571CC5010900D13691 /* PitchViewController.xib */; };
+		4576085C1CC5010900D13691 /* SyllabusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608581CC5010900D13691 /* SyllabusTableViewCell.swift */; };
+		4576085D1CC5010900D13691 /* SyllabusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457608591CC5010900D13691 /* SyllabusTableViewCell.xib */; };
+		457608621CC5012100D13691 /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576085E1CC5012100D13691 /* ClassViewController.swift */; };
+		457608631CC5012100D13691 /* ClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4576085F1CC5012100D13691 /* ClassViewController.xib */; };
+		457608641CC5012100D13691 /* PCClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608601CC5012100D13691 /* PCClassTableViewCell.swift */; };
+		457608651CC5012100D13691 /* PCClassTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457608611CC5012100D13691 /* PCClassTableViewCell.xib */; };
+		457608681CC5047700D13691 /* PCExpandedPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608661CC5047700D13691 /* PCExpandedPlayerViewController.swift */; };
+		457608691CC5047700D13691 /* PCExpandedPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457608671CC5047700D13691 /* PCExpandedPlayerViewController.xib */; };
+		4576086B1CC70E9F00D13691 /* PCSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576086A1CC70E9F00D13691 /* PCSlider.swift */; };
 		4588E5AE1C9EEEFE0065BEF2 /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5AC1C9EEEFE0065BEF2 /* ClassTableViewCell.swift */; };
 		4588E5AF1C9EEEFE0065BEF2 /* ClassTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4588E5AD1C9EEEFE0065BEF2 /* ClassTableViewCell.xib */; };
-		4588E5B11C9EF37D0065BEF2 /* NSObject+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5B01C9EF37D0065BEF2 /* NSObject+Podclass.swift */; };
-		4588E5B81C9F03F40065BEF2 /* UIColor+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5B71C9F03F40065BEF2 /* UIColor+Podclass.swift */; };
-		4588E5BA1C9F059A0065BEF2 /* PCClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5B91C9F059A0065BEF2 /* PCClass.swift */; };
-		4588E5C01CA20DCE0065BEF2 /* PitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5BE1CA20DCE0065BEF2 /* PitchViewController.swift */; };
-		4588E5C11CA20DCE0065BEF2 /* PitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4588E5BF1CA20DCE0065BEF2 /* PitchViewController.xib */; };
-		4588E5C31CA224E60065BEF2 /* UIViewController+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5C21CA224E60065BEF2 /* UIViewController+Podclass.swift */; };
-		459F450C1C9ECD1900DEDCED /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 459F45081C9ECD1900DEDCED /* ProximaNova-Light.otf */; };
-		459F450D1C9ECD1900DEDCED /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 459F45091C9ECD1900DEDCED /* ProximaNova-Regular.otf */; };
-		459F450E1C9ECD1900DEDCED /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 459F450A1C9ECD1900DEDCED /* Quicksand-Light.ttf */; };
-		459F450F1C9ECD1900DEDCED /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 459F450B1C9ECD1900DEDCED /* Quicksand-Regular.ttf */; };
 		45DF04D71C9EC9F5005B6C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF04D61C9EC9F5005B6C8A /* AppDelegate.swift */; };
 		45DF04D91C9EC9F5005B6C8A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF04D81C9EC9F5005B6C8A /* HomeViewController.swift */; };
 		45DF04DC1C9EC9F5005B6C8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45DF04DA1C9EC9F5005B6C8A /* Main.storyboard */; };
@@ -44,35 +47,38 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		452AFD481CAC880B00DCF69C /* ClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassViewController.swift; path = "Class View Controller/ClassViewController.swift"; sourceTree = "<group>"; };
-		452AFD491CAC880B00DCF69C /* ClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ClassViewController.xib; path = "Class View Controller/ClassViewController.xib"; sourceTree = "<group>"; };
-		452AFD4C1CACA25800DCF69C /* PCClassTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCClassTableViewCell.swift; path = "Class View Controller/PCClassTableViewCell.swift"; sourceTree = "<group>"; };
-		452AFD4D1CACA25800DCF69C /* PCClassTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PCClassTableViewCell.xib; path = "Class View Controller/PCClassTableViewCell.xib"; sourceTree = "<group>"; };
-		452AFD501CB0668200DCF69C /* PCLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCLabel.swift; path = Views/PCLabel.swift; sourceTree = "<group>"; };
-		452AFD521CB066A900DCF69C /* PCView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCView.swift; path = Views/PCView.swift; sourceTree = "<group>"; };
-		456886951CA5F11900487D6E /* SyllabusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SyllabusTableViewCell.swift; path = "Pitch View Controller/SyllabusTableViewCell.swift"; sourceTree = "<group>"; };
-		456886961CA5F11900487D6E /* SyllabusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SyllabusTableViewCell.xib; path = "Pitch View Controller/SyllabusTableViewCell.xib"; sourceTree = "<group>"; };
-		456886991CA6D01A00487D6E /* PCLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCLesson.swift; path = Models/PCLesson.swift; sourceTree = "<group>"; };
-		4576081A1CB95E0300D13691 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
-		4576081C1CB96F2D00D13691 /* Podclass-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Podclass-Bridging-Header.h"; sourceTree = "<group>"; };
 		457608211CBAB90700D13691 /* PCAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCAudioPlayer.swift; sourceTree = "<group>"; };
-		457608271CBC7E9400D13691 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		457608291CBC81D700D13691 /* PCMiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMiniPlayerView.swift; sourceTree = "<group>"; };
 		4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCMiniPlayerView.xib; sourceTree = "<group>"; };
-		457608311CC4478300D13691 /* PCButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCButton.swift; path = Views/PCButton.swift; sourceTree = "<group>"; };
-		4588E5AA1C9EEA130065BEF2 /* UIView+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Podclass.swift"; path = "Extensions/UIView+Podclass.swift"; sourceTree = "<group>"; };
+		457608341CC4FD6500D13691 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		457608351CC4FD6500D13691 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		457608391CC4FED800D13691 /* Podclass-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Podclass-Bridging-Header.h"; sourceTree = "<group>"; };
+		4576083C1CC5009F00D13691 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
+		4576083D1CC5009F00D13691 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		4576083E1CC5009F00D13691 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
+		4576083F1CC5009F00D13691 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		457608441CC500B800D13691 /* PCClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCClass.swift; sourceTree = "<group>"; };
+		457608451CC500B800D13691 /* PCLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCLesson.swift; sourceTree = "<group>"; };
+		457608481CC500D200D13691 /* PCButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCButton.swift; sourceTree = "<group>"; };
+		457608491CC500D200D13691 /* PCLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCLabel.swift; sourceTree = "<group>"; };
+		4576084A1CC500D200D13691 /* PCView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCView.swift; sourceTree = "<group>"; };
+		4576084E1CC500EF00D13691 /* NSObject+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Podclass.swift"; sourceTree = "<group>"; };
+		4576084F1CC500EF00D13691 /* UIColor+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Podclass.swift"; sourceTree = "<group>"; };
+		457608501CC500EF00D13691 /* UIView+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Podclass.swift"; sourceTree = "<group>"; };
+		457608511CC500EF00D13691 /* UIViewController+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Podclass.swift"; sourceTree = "<group>"; };
+		457608561CC5010900D13691 /* PitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchViewController.swift; sourceTree = "<group>"; };
+		457608571CC5010900D13691 /* PitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PitchViewController.xib; sourceTree = "<group>"; };
+		457608581CC5010900D13691 /* SyllabusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyllabusTableViewCell.swift; sourceTree = "<group>"; };
+		457608591CC5010900D13691 /* SyllabusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SyllabusTableViewCell.xib; sourceTree = "<group>"; };
+		4576085E1CC5012100D13691 /* ClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
+		4576085F1CC5012100D13691 /* ClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewController.xib; sourceTree = "<group>"; };
+		457608601CC5012100D13691 /* PCClassTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCClassTableViewCell.swift; sourceTree = "<group>"; };
+		457608611CC5012100D13691 /* PCClassTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCClassTableViewCell.xib; sourceTree = "<group>"; };
+		457608661CC5047700D13691 /* PCExpandedPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCExpandedPlayerViewController.swift; sourceTree = "<group>"; };
+		457608671CC5047700D13691 /* PCExpandedPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCExpandedPlayerViewController.xib; sourceTree = "<group>"; };
+		4576086A1CC70E9F00D13691 /* PCSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCSlider.swift; sourceTree = "<group>"; };
 		4588E5AC1C9EEEFE0065BEF2 /* ClassTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
 		4588E5AD1C9EEEFE0065BEF2 /* ClassTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassTableViewCell.xib; sourceTree = "<group>"; };
-		4588E5B01C9EF37D0065BEF2 /* NSObject+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSObject+Podclass.swift"; path = "Extensions/NSObject+Podclass.swift"; sourceTree = "<group>"; };
-		4588E5B71C9F03F40065BEF2 /* UIColor+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Podclass.swift"; sourceTree = "<group>"; };
-		4588E5B91C9F059A0065BEF2 /* PCClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCClass.swift; path = Models/PCClass.swift; sourceTree = "<group>"; };
-		4588E5BE1CA20DCE0065BEF2 /* PitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PitchViewController.swift; path = "Pitch View Controller/PitchViewController.swift"; sourceTree = "<group>"; };
-		4588E5BF1CA20DCE0065BEF2 /* PitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PitchViewController.xib; path = "Pitch View Controller/PitchViewController.xib"; sourceTree = "<group>"; };
-		4588E5C21CA224E60065BEF2 /* UIViewController+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Podclass.swift"; path = "Extensions/UIViewController+Podclass.swift"; sourceTree = "<group>"; };
-		459F45081C9ECD1900DEDCED /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Light.otf"; path = "Fonts/ProximaNova-Light.otf"; sourceTree = "<group>"; };
-		459F45091C9ECD1900DEDCED /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Regular.otf"; path = "Fonts/ProximaNova-Regular.otf"; sourceTree = "<group>"; };
-		459F450A1C9ECD1900DEDCED /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Light.ttf"; path = "Fonts/Quicksand-Light.ttf"; sourceTree = "<group>"; };
-		459F450B1C9ECD1900DEDCED /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Regular.ttf"; path = "Fonts/Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 		45DF04D31C9EC9F5005B6C8A /* Podclass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podclass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DF04D61C9EC9F5005B6C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45DF04D81C9EC9F5005B6C8A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -108,12 +114,12 @@
 		452AFD471CAC87BF00DCF69C /* Class View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				452AFD481CAC880B00DCF69C /* ClassViewController.swift */,
-				452AFD491CAC880B00DCF69C /* ClassViewController.xib */,
-				452AFD4C1CACA25800DCF69C /* PCClassTableViewCell.swift */,
-				452AFD4D1CACA25800DCF69C /* PCClassTableViewCell.xib */,
+				4576085E1CC5012100D13691 /* ClassViewController.swift */,
+				4576085F1CC5012100D13691 /* ClassViewController.xib */,
+				457608601CC5012100D13691 /* PCClassTableViewCell.swift */,
+				457608611CC5012100D13691 /* PCClassTableViewCell.xib */,
 			);
-			name = "Class View Controller";
+			path = "Class View Controller";
 			sourceTree = "<group>";
 		};
 		457608201CBAB8D900D13691 /* Audio Player */ = {
@@ -122,19 +128,31 @@
 				457608211CBAB90700D13691 /* PCAudioPlayer.swift */,
 				457608291CBC81D700D13691 /* PCMiniPlayerView.swift */,
 				4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */,
+				457608661CC5047700D13691 /* PCExpandedPlayerViewController.swift */,
+				457608671CC5047700D13691 /* PCExpandedPlayerViewController.xib */,
 			);
 			path = "Audio Player";
+			sourceTree = "<group>";
+		};
+		457608331CC4FD0D00D13691 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				457608341CC4FD6500D13691 /* APIKeys.swift */,
+				457608351CC4FD6500D13691 /* Constants.swift */,
+				457608391CC4FED800D13691 /* Podclass-Bridging-Header.h */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		4588E5A91C9EE9DF0065BEF2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4588E5AA1C9EEA130065BEF2 /* UIView+Podclass.swift */,
-				4588E5B01C9EF37D0065BEF2 /* NSObject+Podclass.swift */,
-				4588E5B71C9F03F40065BEF2 /* UIColor+Podclass.swift */,
-				4588E5C21CA224E60065BEF2 /* UIViewController+Podclass.swift */,
+				4576084E1CC500EF00D13691 /* NSObject+Podclass.swift */,
+				4576084F1CC500EF00D13691 /* UIColor+Podclass.swift */,
+				457608501CC500EF00D13691 /* UIView+Podclass.swift */,
+				457608511CC500EF00D13691 /* UIViewController+Podclass.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4588E5B21C9EF4A80065BEF2 /* Home View Controller */ = {
@@ -144,7 +162,7 @@
 				45DF04D81C9EC9F5005B6C8A /* HomeViewController.swift */,
 				4588E5B31C9EF4D40065BEF2 /* Class Table View */,
 			);
-			name = "Home View Controller";
+			path = "Home View Controller";
 			sourceTree = "<group>";
 		};
 		4588E5B31C9EF4D40065BEF2 /* Class Table View */ = {
@@ -154,47 +172,49 @@
 				4588E5AD1C9EEEFE0065BEF2 /* ClassTableViewCell.xib */,
 			);
 			name = "Class Table View";
+			path = "Class TableView";
 			sourceTree = "<group>";
 		};
 		4588E5B61C9EFE770065BEF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				452AFD501CB0668200DCF69C /* PCLabel.swift */,
-				457608311CC4478300D13691 /* PCButton.swift */,
-				452AFD521CB066A900DCF69C /* PCView.swift */,
+				457608481CC500D200D13691 /* PCButton.swift */,
+				457608491CC500D200D13691 /* PCLabel.swift */,
+				4576084A1CC500D200D13691 /* PCView.swift */,
+				4576086A1CC70E9F00D13691 /* PCSlider.swift */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4588E5BC1C9F05A40065BEF2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4588E5B91C9F059A0065BEF2 /* PCClass.swift */,
-				456886991CA6D01A00487D6E /* PCLesson.swift */,
+				457608441CC500B800D13691 /* PCClass.swift */,
+				457608451CC500B800D13691 /* PCLesson.swift */,
 			);
-			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4588E5BD1CA20D980065BEF2 /* Pitch View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4588E5BE1CA20DCE0065BEF2 /* PitchViewController.swift */,
-				4588E5BF1CA20DCE0065BEF2 /* PitchViewController.xib */,
-				456886951CA5F11900487D6E /* SyllabusTableViewCell.swift */,
-				456886961CA5F11900487D6E /* SyllabusTableViewCell.xib */,
+				457608561CC5010900D13691 /* PitchViewController.swift */,
+				457608571CC5010900D13691 /* PitchViewController.xib */,
+				457608581CC5010900D13691 /* SyllabusTableViewCell.swift */,
+				457608591CC5010900D13691 /* SyllabusTableViewCell.xib */,
 			);
-			name = "Pitch View Controller";
+			path = "Pitch View Controller";
 			sourceTree = "<group>";
 		};
 		459F45071C9ECC5F00DEDCED /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				459F45081C9ECD1900DEDCED /* ProximaNova-Light.otf */,
-				459F45091C9ECD1900DEDCED /* ProximaNova-Regular.otf */,
-				459F450A1C9ECD1900DEDCED /* Quicksand-Light.ttf */,
-				459F450B1C9ECD1900DEDCED /* Quicksand-Regular.ttf */,
+				4576083C1CC5009F00D13691 /* ProximaNova-Light.otf */,
+				4576083D1CC5009F00D13691 /* ProximaNova-Regular.otf */,
+				4576083E1CC5009F00D13691 /* Quicksand-Light.ttf */,
+				4576083F1CC5009F00D13691 /* Quicksand-Regular.ttf */,
 			);
-			name = Fonts;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		45DF04CA1C9EC9F5005B6C8A = {
@@ -218,12 +238,11 @@
 		45DF04D51C9EC9F5005B6C8A /* Podclass */ = {
 			isa = PBXGroup;
 			children = (
-				457608201CBAB8D900D13691 /* Audio Player */,
 				45DF04D61C9EC9F5005B6C8A /* AppDelegate.swift */,
-				4576081C1CB96F2D00D13691 /* Podclass-Bridging-Header.h */,
-				4576081A1CB95E0300D13691 /* APIKeys.swift */,
-				457608271CBC7E9400D13691 /* Constants.swift */,
+				457608331CC4FD0D00D13691 /* Utilities */,
+				459F45071C9ECC5F00DEDCED /* Fonts */,
 				4588E5BC1C9F05A40065BEF2 /* Models */,
+				457608201CBAB8D900D13691 /* Audio Player */,
 				4588E5B61C9EFE770065BEF2 /* Views */,
 				4588E5A91C9EE9DF0065BEF2 /* Extensions */,
 				4588E5B21C9EF4A80065BEF2 /* Home View Controller */,
@@ -232,7 +251,6 @@
 				45DF04DD1C9EC9F5005B6C8A /* Assets.xcassets */,
 				45DF04DF1C9EC9F5005B6C8A /* LaunchScreen.storyboard */,
 				45DF04E21C9EC9F5005B6C8A /* Info.plist */,
-				459F45071C9ECC5F00DEDCED /* Fonts */,
 			);
 			path = Podclass;
 			sourceTree = "<group>";
@@ -308,18 +326,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				452AFD4F1CACA25800DCF69C /* PCClassTableViewCell.xib in Resources */,
 				4588E5AF1C9EEEFE0065BEF2 /* ClassTableViewCell.xib in Resources */,
 				45DF04E11C9EC9F5005B6C8A /* LaunchScreen.storyboard in Resources */,
-				459F450D1C9ECD1900DEDCED /* ProximaNova-Regular.otf in Resources */,
-				459F450F1C9ECD1900DEDCED /* Quicksand-Regular.ttf in Resources */,
-				452AFD4B1CAC880B00DCF69C /* ClassViewController.xib in Resources */,
-				4588E5C11CA20DCE0065BEF2 /* PitchViewController.xib in Resources */,
-				459F450C1C9ECD1900DEDCED /* ProximaNova-Light.otf in Resources */,
+				457608631CC5012100D13691 /* ClassViewController.xib in Resources */,
+				457608691CC5047700D13691 /* PCExpandedPlayerViewController.xib in Resources */,
+				4576085D1CC5010900D13691 /* SyllabusTableViewCell.xib in Resources */,
+				457608401CC5009F00D13691 /* ProximaNova-Light.otf in Resources */,
+				457608421CC5009F00D13691 /* Quicksand-Light.ttf in Resources */,
+				4576085B1CC5010900D13691 /* PitchViewController.xib in Resources */,
+				457608431CC5009F00D13691 /* Quicksand-Regular.ttf in Resources */,
 				4576082C1CBC81D700D13691 /* PCMiniPlayerView.xib in Resources */,
-				459F450E1C9ECD1900DEDCED /* Quicksand-Light.ttf in Resources */,
+				457608411CC5009F00D13691 /* ProximaNova-Regular.otf in Resources */,
 				45DF04DE1C9EC9F5005B6C8A /* Assets.xcassets in Resources */,
-				456886981CA5F11900487D6E /* SyllabusTableViewCell.xib in Resources */,
+				457608651CC5012100D13691 /* PCClassTableViewCell.xib in Resources */,
 				45DF04DC1C9EC9F5005B6C8A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,25 +398,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457608681CC5047700D13691 /* PCExpandedPlayerViewController.swift in Sources */,
+				4576086B1CC70E9F00D13691 /* PCSlider.swift in Sources */,
+				457608621CC5012100D13691 /* ClassViewController.swift in Sources */,
+				457608641CC5012100D13691 /* PCClassTableViewCell.swift in Sources */,
+				4576084B1CC500D200D13691 /* PCButton.swift in Sources */,
 				4576082B1CBC81D700D13691 /* PCMiniPlayerView.swift in Sources */,
-				4568869A1CA6D01A00487D6E /* PCLesson.swift in Sources */,
-				457608281CBC7E9400D13691 /* Constants.swift in Sources */,
-				452AFD511CB0668200DCF69C /* PCLabel.swift in Sources */,
-				457608321CC4478300D13691 /* PCButton.swift in Sources */,
+				4576084D1CC500D200D13691 /* PCView.swift in Sources */,
+				457608381CC4FD6500D13691 /* Constants.swift in Sources */,
 				4588E5AE1C9EEEFE0065BEF2 /* ClassTableViewCell.swift in Sources */,
 				45DF04D91C9EC9F5005B6C8A /* HomeViewController.swift in Sources */,
-				452AFD4E1CACA25800DCF69C /* PCClassTableViewCell.swift in Sources */,
-				4588E5C31CA224E60065BEF2 /* UIViewController+Podclass.swift in Sources */,
-				452AFD4A1CAC880B00DCF69C /* ClassViewController.swift in Sources */,
-				4588E5AB1C9EEA130065BEF2 /* UIView+Podclass.swift in Sources */,
-				452AFD531CB066A900DCF69C /* PCView.swift in Sources */,
-				4588E5BA1C9F059A0065BEF2 /* PCClass.swift in Sources */,
+				4576084C1CC500D200D13691 /* PCLabel.swift in Sources */,
+				4576085C1CC5010900D13691 /* SyllabusTableViewCell.swift in Sources */,
+				4576085A1CC5010900D13691 /* PitchViewController.swift in Sources */,
+				457608371CC4FD6500D13691 /* APIKeys.swift in Sources */,
+				457608461CC500B800D13691 /* PCClass.swift in Sources */,
+				457608471CC500B800D13691 /* PCLesson.swift in Sources */,
+				457608541CC500EF00D13691 /* UIView+Podclass.swift in Sources */,
 				45DF04D71C9EC9F5005B6C8A /* AppDelegate.swift in Sources */,
-				4588E5B11C9EF37D0065BEF2 /* NSObject+Podclass.swift in Sources */,
-				456886971CA5F11900487D6E /* SyllabusTableViewCell.swift in Sources */,
-				4588E5B81C9F03F40065BEF2 /* UIColor+Podclass.swift in Sources */,
-				4576081B1CB95E0300D13691 /* APIKeys.swift in Sources */,
-				4588E5C01CA20DCE0065BEF2 /* PitchViewController.swift in Sources */,
+				457608521CC500EF00D13691 /* NSObject+Podclass.swift in Sources */,
+				457608551CC500EF00D13691 /* UIViewController+Podclass.swift in Sources */,
+				457608531CC500EF00D13691 /* UIColor+Podclass.swift in Sources */,
 				457608221CBAB90700D13691 /* PCAudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +432,7 @@
 				45DF04DB1C9EC9F5005B6C8A /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		45DF04DF1C9EC9F5005B6C8A /* LaunchScreen.storyboard */ = {
@@ -516,7 +538,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.podclass.Podclass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Podclass/Podclass-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Podclass/Utilities/Podclass-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -531,7 +553,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.podclass.Podclass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Podclass/Podclass-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Podclass/Utilities/Podclass-Bridging-Header.h";
 			};
 			name = Release;
 		};

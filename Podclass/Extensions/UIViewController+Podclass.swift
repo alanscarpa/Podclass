@@ -18,4 +18,7 @@ extension UIViewController {
         return NSStringFromClass(self).componentsSeparatedByString(".").last!
     }
     
+    var isVisible: Bool{
+        return self.isViewLoaded() && view.window != nil
+    }
 }

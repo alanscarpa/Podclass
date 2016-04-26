@@ -11,6 +11,10 @@
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uI3-oy-XFb" userLabel="Now Playing Background View" customClass="PCMiniPlayerView" customModule="Podclass" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
             <subviews>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vPc-3B-afY">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="2"/>
+                    <color key="progressTintColor" red="0.99215686270000003" green="0.3803921569" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                </progressView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTq-eT-J0P" userLabel="expandButton">
                     <rect key="frame" x="16" y="13" width="44" height="44"/>
                     <constraints>
@@ -53,15 +57,18 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="vPc-3B-afY" firstAttribute="top" secondItem="uI3-oy-XFb" secondAttribute="top" id="CVp-ut-AIK"/>
                 <constraint firstAttribute="trailing" secondItem="tVJ-C9-Enh" secondAttribute="trailing" constant="16" id="E1j-mo-KzT"/>
                 <constraint firstItem="6Gm-DA-UK0" firstAttribute="centerY" secondItem="QcD-OZ-2vi" secondAttribute="centerY" id="FQb-pf-v1p"/>
                 <constraint firstAttribute="height" constant="70" id="Nf6-Ox-9NP"/>
+                <constraint firstAttribute="trailing" secondItem="vPc-3B-afY" secondAttribute="trailing" id="QVu-Bg-8Fn"/>
                 <constraint firstItem="6Gm-DA-UK0" firstAttribute="leading" secondItem="QcD-OZ-2vi" secondAttribute="trailing" id="QoJ-dy-ccn"/>
                 <constraint firstItem="hTq-eT-J0P" firstAttribute="leading" secondItem="uI3-oy-XFb" secondAttribute="leading" constant="16" id="VO0-Ba-Z5a"/>
                 <constraint firstItem="tVJ-C9-Enh" firstAttribute="leading" secondItem="6Gm-DA-UK0" secondAttribute="trailing" id="Wil-lc-3bC"/>
                 <constraint firstItem="QcD-OZ-2vi" firstAttribute="leading" secondItem="hTq-eT-J0P" secondAttribute="trailing" id="cfj-YA-43R"/>
                 <constraint firstItem="tVJ-C9-Enh" firstAttribute="centerY" secondItem="uI3-oy-XFb" secondAttribute="centerY" id="gJm-Hx-7FZ"/>
                 <constraint firstItem="hTq-eT-J0P" firstAttribute="centerY" secondItem="uI3-oy-XFb" secondAttribute="centerY" id="mXj-VG-7Mk"/>
+                <constraint firstItem="vPc-3B-afY" firstAttribute="leading" secondItem="uI3-oy-XFb" secondAttribute="leading" id="naw-rW-ogD"/>
                 <constraint firstItem="QcD-OZ-2vi" firstAttribute="centerY" secondItem="hTq-eT-J0P" secondAttribute="centerY" id="u5u-7L-qll"/>
                 <constraint firstItem="tVJ-C9-Enh" firstAttribute="width" secondItem="tVJ-C9-Enh" secondAttribute="height" multiplier="1:1" id="xsg-zE-tQ5"/>
             </constraints>
@@ -71,6 +78,7 @@
                 <outlet property="lessonNumberLabel" destination="QcD-OZ-2vi" id="xwA-Rz-K3i"/>
                 <outlet property="lessonTitleLabel" destination="6Gm-DA-UK0" id="Vuw-1a-Tn4"/>
                 <outlet property="playButton" destination="tVJ-C9-Enh" id="fei-QC-O3Y"/>
+                <outlet property="progressView" destination="vPc-3B-afY" id="uQ9-8U-3wn"/>
             </connections>
             <point key="canvasLocation" x="513" y="-173.5"/>
         </view>

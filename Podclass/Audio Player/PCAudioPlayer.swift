@@ -65,6 +65,41 @@ class PCAudioManager: NSObject {
             return currentClass.syllabus.count > 0
         }
     }
+    
+    var hasNextTrack: Bool {
+        get {
+            return self.currentLesson.index + 1 < currentClass.syllabus.count
+        }
+    }
+    
+    var hasPreviousTrack: Bool {
+        get {
+            return self.currentLesson.index - 1 >= 0
+        }
+    }
+    
+    func playNextTrack() {
+        if hasNextTrack {
+            self.currentLesson = currentClass.syllabus[self.currentLesson.index + 1]
+            if let url = NSURL(string: self.currentLesson.trackURLString) {
+                self.playNewTrack(url)
+            } else {
+                print("ERROR:  NO URL")
+            }
+        }
+    }
+    
+    func playPreviousTrack() {
+        if hasPreviousTrack {
+            self.currentLesson = currentClass.syllabus[self.currentLesson.index - 1]
+            if let url = NSURL(string: self.currentLesson.trackURLString) {
+                self.playNewTrack(url)
+            } else {
+                print("ERROR:  NO URL")
+            }
+        }
+    }
+    
     func playLesson(lesson: PCLesson) {
         self.currentLesson = lesson
         if self.currentItemIsLesson(lesson) {
@@ -83,6 +118,7 @@ class PCAudioManager: NSObject {
             }
         }
     }
+    
     
     private func playNewTrack(trackURL: NSURL) {
         let newItem = AVPlayerItem(URL: trackURL)

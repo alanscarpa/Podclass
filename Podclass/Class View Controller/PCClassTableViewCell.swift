@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AVFoundation
 
 class PCClassTableViewCell: UITableViewCell {
 
@@ -15,6 +15,8 @@ class PCClassTableViewCell: UITableViewCell {
     @IBOutlet weak var lessonTitleLabel: UILabel!
     var pauseButtonImage = UIImage(named: "pauseButton")
     var playButtonImage = UIImage(named: "playButton")
+    @IBOutlet weak var lessonDurationLabel: UILabel!
+
     var isActive = false {
         didSet {
             self.contentView.backgroundColor = self.isActive ? UIColor.pcLightOrange() : UIColor.whiteColor()
@@ -26,7 +28,8 @@ class PCClassTableViewCell: UITableViewCell {
     func configureForLesson(lesson: PCLesson) {
         self.lesson = lesson
         self.lessonNumberLabel.text = "\(lesson.number)"
-        self.lessonTitleLabel.text = "\(lesson.title)"
+        self.lessonTitleLabel.text = lesson.title
+        self.lessonDurationLabel.text = lesson.duration
     }
 
 }

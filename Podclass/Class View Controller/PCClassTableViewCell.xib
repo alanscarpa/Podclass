@@ -74,6 +74,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="lessonDurationLabel" destination="hj1-3m-Ang" id="oAb-LQ-aJf"/>
                 <outlet property="lessonNumberLabel" destination="JZT-Lm-XrT" id="Sp0-gA-CX8"/>
                 <outlet property="lessonTitleLabel" destination="gzW-r0-nKT" id="d0d-59-4Ar"/>
             </connections>
