@@ -23,6 +23,11 @@ class PCMiniPlayerView: UIView {
     var bottomConstraint = NSLayoutConstraint()
     var isShowing = false
     var constraintsAreSet = false
+    var currentLesson: PCLesson? {
+        didSet {
+            updateUIForNewTrack()
+        }
+    }
     weak var delegate: PCMiniPlayerDelegate?
     
     override func awakeFromNib() {
