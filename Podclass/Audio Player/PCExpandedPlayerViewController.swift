@@ -26,6 +26,7 @@ class PCExpandedPlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setProgressSliderToCurrentTrackTime()
         setUpPlaybackObserver()
         progressSlider.addTarget(self, action: #selector(PCExpandedPlayerViewController.sliderMoved), forControlEvents: .ValueChanged)
         
@@ -41,6 +42,21 @@ class PCExpandedPlayerViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PCExpandedPlayerViewController.audioStartedPlaying), name: kAudioStartedPlaying, object: nil)
     }
     
+    func setProgressSliderToCurrentTrackTime() {
+        let endTime = CMTimeConvertScale((self.audioManager.player.currentItem?.asset.duration)!, self.audioManager.player.currentTime().timescale, .RoundHalfAwayFromZero)
+        if CMTimeCompare(endTime, kCMTimeZero) != 0 {
+            let normalizedTime: Float = Float(self.audioManager.player.currentTime().value) / Float(endTime.value)
+            self.updateProgressSlider(normalizedTime)
+        }
+        let currentSeconds = CMTimeGetSeconds(self.audioManager.player.currentTime());
+        self.timeProgressLabel.text = self.timeFormatted(Int(currentSeconds))
+        if let currentItem = self.audioManager.player.currentItem {
+            let totalSeconds = CMTimeGetSeconds(currentItem.duration)
+            if !totalSeconds.isNaN {
+                self.timeLeftLabel.text = "-\(self.timeFormatted(Int(totalSeconds) - Int(currentSeconds)))"
+            }
+        }
+    }
     func updateTrackUI() {
         lessonTitleLabel.text = audioManager.currentLesson.title
         let playIconImage = audioManager.isPlaying ? UIImage(named: "pauseButton") : UIImage(named: "playButton")
@@ -60,19 +76,7 @@ class PCExpandedPlayerViewController: UIViewController {
     func setUpPlaybackObserver() {
         let interval = CMTimeMake(60, 1000)
         playbackObserver = audioManager.player.addPeriodicTimeObserverForInterval(interval, queue: dispatch_get_main_queue()) { time in
-            let endTime = CMTimeConvertScale((self.audioManager.player.currentItem?.asset.duration)!, self.audioManager.player.currentTime().timescale, .RoundHalfAwayFromZero)
-            if CMTimeCompare(endTime, kCMTimeZero) != 0 {
-                let normalizedTime: Float = Float(self.audioManager.player.currentTime().value) / Float(endTime.value)
-                self.updateProgressSlider(normalizedTime)
-            }
-            let currentSeconds = CMTimeGetSeconds(self.audioManager.player.currentTime());
-            self.timeProgressLabel.text = self.timeFormatted(Int(currentSeconds))
-            if let currentItem = self.audioManager.player.currentItem {
-                let totalSeconds = CMTimeGetSeconds(currentItem.duration)
-                if !totalSeconds.isNaN {
-                    self.timeLeftLabel.text = "-\(self.timeFormatted(Int(totalSeconds) - Int(currentSeconds)))"
-                }
-            }
+            self.setProgressSliderToCurrentTrackTime()
         }
     }
     

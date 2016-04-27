@@ -20,7 +20,7 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     var lastTappedIndexPath: NSIndexPath?
     let audioManager = PCAudioManager.sharedInstance
     var playbackObserver: AnyObject?
-    let miniPlayerView = PCMiniPlayerView.ip_fromNib()
+    static let miniPlayerView = PCMiniPlayerView.ip_fromNib()
 
     @IBOutlet private weak var classTitleLabel: UILabel!
     @IBOutlet private weak var classTableView: UITableView!
@@ -37,21 +37,16 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.audioFailed), name: kAudioFailed, object: nil)
         
         let window = UIApplication.sharedApplication().keyWindow
-        window?.addSubview(miniPlayerView)
-        miniPlayerView.delegate = self
+        window?.addSubview(ClassViewController.miniPlayerView)
+        ClassViewController.miniPlayerView.delegate = self
         setUpPlaybackObserver()
-    }
-    
-    deinit {
-        if let playbackObserver = playbackObserver {
-            audioManager.player.removeTimeObserver(playbackObserver)
-        }
     }
     
     func audioStartedPlaying() {
         if isVisible {
             NSNotificationCenter.defaultCenter().postNotificationName(kShowMiniPlayer, object: nil)
         }
+        classTableView.reloadData()
         SVProgressHUD.dismiss()
     }
     
@@ -76,12 +71,13 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     }
     
     func updateProgressSlider(value: Float) {
-        miniPlayerView.progressView.progress = value
+        ClassViewController.miniPlayerView.progressView.progress = value
     }
         
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if audioManager.hasCurrentTracks {
+            ClassViewController.miniPlayerView.currentLesson = audioManager.currentLesson
             NSNotificationCenter.defaultCenter().postNotificationName(kShowMiniPlayer, object: nil)
         }
         SVProgressHUD.dismiss()
@@ -106,9 +102,9 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     }
     
     func miniPlayerPlayPauseButtonTapped(notification: NSNotification) {
-        let indexPath = notification.userInfo!["indexPath"] as! NSIndexPath
-        let cellToUpdate = classTableView.cellForRowAtIndexPath(indexPath) as! PCClassTableViewCell
-        updateCellStatus(cellToUpdate, indexPath: indexPath)
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            self.audioManager.playLesson(self.audioManager.currentLesson)
+        }
     }
     
     // MARK: UITableViewDataSource
@@ -123,7 +119,7 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
         let lessonForRow = currentClass.syllabus[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier(PCClassTableViewCell.className(), forIndexPath: indexPath) as! PCClassTableViewCell
         cell.configureForLesson(lessonForRow)
-        cell.isActive = audioManager.isPlayingLesson(lessonForRow)
+        cell.isActive = audioManager.currentLesson == lessonForRow
         if cell.isActive {
             lastTappedIndexPath = indexPath
         }
@@ -139,38 +135,30 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
         SVProgressHUD.show()
         audioManager.currentClass = currentClass
         currentLesson = currentClass.syllabus[indexPath.row]
-        updateCellStatus(classTableView.cellForRowAtIndexPath(indexPath) as! PCClassTableViewCell, indexPath: indexPath)
-        guard let lastIndexPath = lastTappedIndexPath where lastIndexPath != indexPath else {
-            lastTappedIndexPath = indexPath
-            return
+        
+        let cell = classTableView.cellForRowAtIndexPath(indexPath) as! PCClassTableViewCell
+        cell.isActive = true
+
+        if let lastTappedIndexPath = lastTappedIndexPath where indexPath != lastTappedIndexPath {
+            let lastCell = classTableView.cellForRowAtIndexPath(lastTappedIndexPath) as! PCClassTableViewCell
+            lastCell.isActive = !lastCell.isActive
         }
-        let cell = classTableView.cellForRowAtIndexPath(lastIndexPath) as! PCClassTableViewCell
-        classTableView.deselectRowAtIndexPath(lastIndexPath, animated: true)
-        cell.isActive = false
         lastTappedIndexPath = indexPath
-    }
-    
-    
-    // MARK: Helpers
-    
-    func updateCellStatus(tappedCell: PCClassTableViewCell, indexPath: NSIndexPath) {
-        tappedCell.isActive = !tappedCell.isActive
-        NSOperationQueue.mainQueue().addOperationWithBlock { 
-            self.audioManager.playLesson(self.currentClass.syllabus[indexPath.row])
-        }
-        if tappedCell == currentlySelectedCell {
-            classTableView.deselectRowAtIndexPath(indexPath, animated: true)
-            currentlySelectedCell = nil
-        } else {
-            currentlySelectedCell = tappedCell
+
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            self.audioManager.playLesson(self.audioManager.currentClass.syllabus[indexPath.row])
         }
     }
     
     // MARK: Actions
     
     @IBAction func backButtonTapped() {
-        navigationController?.popViewControllerAnimated(true)
         NSNotificationCenter.defaultCenter().postNotificationName(kHideMiniPlayer, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        if let playbackObserver = playbackObserver {
+            audioManager.player.removeTimeObserver(playbackObserver)
+        }
+        navigationController?.popViewControllerAnimated(true)
     }
 
     @IBAction func discussionButtonTapped() {

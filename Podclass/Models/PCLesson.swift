@@ -37,3 +37,8 @@ class PCLesson {
         self.trackID = ""
     }
 }
+
+func ==(lhs: PCLesson, rhs: PCLesson) -> Bool {
+    // TODO: change to trackID once we are using unique trackids.
+    return lhs.title == rhs.title
+}
