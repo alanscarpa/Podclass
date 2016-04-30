@@ -11,6 +11,7 @@ import Alamofire
 import SVProgressHUD
 import Social
 import CoreMedia
+import AVFoundation
 
 class ClassViewController: UIViewController, PCMiniPlayerDelegate {
 
@@ -36,10 +37,27 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.audioStoppedPlaying), name: kAudioStoppedPlaying, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.audioFailed), name: kAudioFailed, object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.startedPlayingNextTrack), name: kStartedPlayingNextTrack, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.startedPlayingPreviousTrack), name: kStartedPlayingPreviousTrack, object: nil)
+        
+        
+        
         let window = UIApplication.sharedApplication().keyWindow
         window?.addSubview(ClassViewController.miniPlayerView)
         ClassViewController.miniPlayerView.delegate = self
         setUpPlaybackObserver()
+    }
+    
+    func startedPlayingNextTrack() {
+        if let oldIndexPath = lastTappedIndexPath {
+            lastTappedIndexPath = NSIndexPath(forRow: oldIndexPath.row + 1, inSection: oldIndexPath.section)
+        }
+    }
+    
+    func startedPlayingPreviousTrack() {
+        if let oldIndexPath = lastTappedIndexPath {
+            lastTappedIndexPath = NSIndexPath(forRow: oldIndexPath.row - 1, inSection: oldIndexPath.section)
+        }
     }
     
     func audioStartedPlaying() {
@@ -51,6 +69,10 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     }
     
     func audioStoppedPlaying() {
+        if let lastTappedIndexPath = lastTappedIndexPath  {
+            let cell = classTableView.cellForRowAtIndexPath(lastTappedIndexPath) as! PCClassTableViewCell
+            cell.isPaused = true
+        }
         SVProgressHUD.dismiss()
     }
     
@@ -120,6 +142,9 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier(PCClassTableViewCell.className(), forIndexPath: indexPath) as! PCClassTableViewCell
         cell.configureForLesson(lessonForRow)
         cell.isActive = audioManager.currentLesson == lessonForRow
+        if cell.isActive && !audioManager.isPlaying {
+            cell.isPaused = true
+        }
         if cell.isActive {
             lastTappedIndexPath = indexPath
         }

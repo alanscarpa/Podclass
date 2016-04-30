@@ -18,4 +18,7 @@ extension UIColor {
     class func pcLightOrange() -> UIColor {
         return UIColor(red: 254/255.0, green: 231/255.0, blue: 210/255.0, alpha: 1)
     }
+    class func pcGray() -> UIColor {
+        return UIColor(red: 237/255.0, green: 237/255.0, blue: 237/255.0, alpha: 1)
+    }
 }

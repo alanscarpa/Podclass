@@ -16,13 +16,26 @@ class PCAudioManager: NSObject {
     var currentClass = PCClass()
     override init() {
         super.init()
-        
         self.player.addObserver(self, forKeyPath: "currentItem.status", options: [.New], context: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PCAudioManager.trackFinishedPlaying), name: AVPlayerItemDidPlayToEndTimeNotification, object: nil)
+    }
+    
+    func trackFinishedPlaying() {
+        if hasNextTrack {
+            playNextTrack()
+        } else {
+            let trackURL = currentClass.syllabus[0].trackURLString
+            if let url = NSURL(string: trackURL) {
+                let newItem = AVPlayerItem(URL: url)
+                player.replaceCurrentItemWithPlayerItem(newItem)
+                currentLesson = currentClass.syllabus[0]
+            }
+        }
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "currentItem.status" {
-            let status = (object as! AVQueuePlayer).currentItem?.status
+            let status = (object as! AVPlayer).currentItem?.status
             if status == .ReadyToPlay {
                 NSNotificationCenter.defaultCenter().postNotificationName(kAudioStartedPlaying, object: nil)
             } else if status == .Failed {
@@ -35,7 +48,7 @@ class PCAudioManager: NSObject {
         self.player.removeObserver(self, forKeyPath: "currentItem.status")
     }
     
-    var player = AVQueuePlayer()
+    var player = AVPlayer()
     
     var currentTrackURLString: String? {
         get {
@@ -60,6 +73,7 @@ class PCAudioManager: NSObject {
     }
     
     var currentLesson = PCLesson()
+    
     var hasCurrentTracks: Bool {
         get {
             return currentClass.syllabus.count > 0
@@ -80,8 +94,9 @@ class PCAudioManager: NSObject {
     
     func playNextTrack() {
         if hasNextTrack {
-            self.currentLesson = currentClass.syllabus[self.currentLesson.index + 1]
-            if let url = NSURL(string: self.currentLesson.trackURLString) {
+            currentLesson = currentClass.syllabus[currentLesson.index + 1]
+            if let url = NSURL(string: currentLesson.trackURLString) {
+                NSNotificationCenter.defaultCenter().postNotificationName(kStartedPlayingNextTrack, object: nil)
                 self.playNewTrack(url)
             } else {
                 print("ERROR:  NO URL")
@@ -91,8 +106,9 @@ class PCAudioManager: NSObject {
     
     func playPreviousTrack() {
         if hasPreviousTrack {
-            self.currentLesson = currentClass.syllabus[self.currentLesson.index - 1]
-            if let url = NSURL(string: self.currentLesson.trackURLString) {
+            currentLesson = currentClass.syllabus[currentLesson.index - 1]
+            if let url = NSURL(string: currentLesson.trackURLString) {
+                NSNotificationCenter.defaultCenter().postNotificationName(kStartedPlayingPreviousTrack, object: nil)
                 self.playNewTrack(url)
             } else {
                 print("ERROR:  NO URL")
@@ -122,11 +138,7 @@ class PCAudioManager: NSObject {
     
     private func playNewTrack(trackURL: NSURL) {
         let newItem = AVPlayerItem(URL: trackURL)
-        if self.player.items().count > 0 {
-            self.player.replaceCurrentItemWithPlayerItem(newItem)
-        } else {
-            self.player.insertItem(newItem, afterItem: nil)
-        }
+        self.player.replaceCurrentItemWithPlayerItem(newItem)
         self.playCurrentTrack()
     }
     
@@ -138,7 +150,7 @@ class PCAudioManager: NSObject {
         }
     }
     
-    private func pauseCurrentTrack() {
+    func pauseCurrentTrack() {
         self.player.pause()
         NSNotificationCenter.defaultCenter().postNotificationName(kAudioStoppedPlaying, object: nil)
     }
