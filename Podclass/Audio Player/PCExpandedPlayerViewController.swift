@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreMedia
+import AVFoundation
 
 class PCExpandedPlayerViewController: UIViewController {
     
@@ -57,6 +58,7 @@ class PCExpandedPlayerViewController: UIViewController {
             }
         }
     }
+    
     func updateTrackUI() {
         lessonTitleLabel.text = audioManager.currentLesson.title
         let playIconImage = audioManager.isPlaying ? UIImage(named: "pauseButton") : UIImage(named: "playButton")
@@ -99,17 +101,17 @@ class PCExpandedPlayerViewController: UIViewController {
     }
     
     @IBAction func nextTrackButtonTapped() {
+        removePlaybackObserver()
         if audioManager.hasNextTrack {
-            removePlaybackObserver()
+            audioManager.playNextTrack()
         }
-        audioManager.playNextTrack()
     }
     
     @IBAction func previousTrackButtonTapped() {
+        removePlaybackObserver()
         if audioManager.hasPreviousTrack {
-            removePlaybackObserver()
+            audioManager.playPreviousTrack()
         }
-        audioManager.playPreviousTrack()
     }
     
     @IBAction func downArrowButtonTapped() {

@@ -8,6 +8,7 @@
 
 import Foundation
 import PureLayout
+import AVFoundation
 
 protocol PCMiniPlayerDelegate: class {
     func miniPlayerExpandButtonTapped()
@@ -80,6 +81,10 @@ class PCMiniPlayerView: UIView {
                 self.layoutIfNeeded()
             })
         }
+    }
+    
+    func resetToInitialState() {
+        playButton.setImage(UIImage(named: "playButton"), forState: .Normal)
     }
     
     // MARK:  Actions

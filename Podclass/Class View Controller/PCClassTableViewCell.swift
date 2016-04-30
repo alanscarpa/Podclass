@@ -23,6 +23,11 @@ class PCClassTableViewCell: UITableViewCell {
             self.lesson.isPlaying = self.isActive
         }
     }
+    var isPaused = false {
+        didSet {
+            self.contentView.backgroundColor = UIColor.pcGray()
+        }
+    }
     var lesson = PCLesson()
 
     func configureForLesson(lesson: PCLesson) {
