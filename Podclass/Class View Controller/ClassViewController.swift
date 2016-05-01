@@ -19,7 +19,9 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     var currentLesson = PCLesson()
     var currentlySelectedCell: PCClassTableViewCell?
     var lastTappedIndexPath: NSIndexPath?
-    let audioManager = PCAudioManager.sharedInstance
+    var audioManager: PCAudioManager {
+        return PCAudioManager.sharedInstance
+    }
     var playbackObserver: AnyObject?
     static let miniPlayerView = PCMiniPlayerView.ip_fromNib()
 
@@ -31,21 +33,32 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
         super.viewDidLoad()
         setUpTableView()
         audioPlayerSync()
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.miniPlayerPlayPauseButtonTapped(_:)), name: kMiniPlayerPlayPauseButtonTapped, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.audioStartedPlaying), name: kAudioStartedPlaying, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.audioStoppedPlaying), name: kAudioStoppedPlaying, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.audioFailed), name: kAudioFailed, object: nil)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.startedPlayingNextTrack), name: kStartedPlayingNextTrack, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ClassViewController.startedPlayingPreviousTrack), name: kStartedPlayingPreviousTrack, object: nil)
-        
-        
-        
+        setUpNotifications()
+  
         let window = UIApplication.sharedApplication().keyWindow
         window?.addSubview(ClassViewController.miniPlayerView)
         ClassViewController.miniPlayerView.delegate = self
         setUpPlaybackObserver()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        showMiniPlayer()
+        SVProgressHUD.dismiss()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        classTableViewHeightConstraint.constant = classTableView.contentSize.height
+    }
+    
+    func setUpNotifications() {
+        PCAudioPlayerNotificationManager.defaultManager.observerNotification(.MiniPlayerPlayPauseButtonTapped, observer: self, selector: #selector(miniPlayerPlayPauseButtonTapped))
+        PCAudioPlayerNotificationManager.defaultManager.observerNotification(.AudioStartedPlaying, observer: self, selector: #selector(audioStartedPlaying))
+        PCAudioPlayerNotificationManager.defaultManager.observerNotification(.AudioStoppedPlaying, observer: self, selector: #selector(audioStoppedPlaying))
+        PCAudioPlayerNotificationManager.defaultManager.observerNotification(.AudioFailed, observer: self, selector: #selector(audioFailed))
+        PCAudioPlayerNotificationManager.defaultManager.observerNotification(.StartedPlayingNextTrack, observer: self, selector: #selector(startedPlayingNextTrack))
+        PCAudioPlayerNotificationManager.defaultManager.observerNotification(.StartedPlayingPreviousTrack, observer: self, selector: #selector(startedPlayingPreviousTrack))
     }
     
     func startedPlayingNextTrack() {
@@ -61,9 +74,7 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     }
     
     func audioStartedPlaying() {
-        if isVisible {
-            NSNotificationCenter.defaultCenter().postNotificationName(kShowMiniPlayer, object: nil)
-        }
+        showMiniPlayer()
         classTableView.reloadData()
         SVProgressHUD.dismiss()
     }
@@ -78,7 +89,9 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     
     func audioFailed() {
         // TODO: Show alert and handle this error state
-        SVProgressHUD.dismiss()
+        setUpPlaybackObserver()
+        audioStoppedPlaying()
+        showMiniPlayer()
     }
     
     func setUpPlaybackObserver() {
@@ -95,20 +108,6 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     func updateProgressSlider(value: Float) {
         ClassViewController.miniPlayerView.progressView.progress = value
     }
-        
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        if audioManager.hasCurrentTracks {
-            ClassViewController.miniPlayerView.currentLesson = audioManager.currentLesson
-            NSNotificationCenter.defaultCenter().postNotificationName(kShowMiniPlayer, object: nil)
-        }
-        SVProgressHUD.dismiss()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        classTableViewHeightConstraint.constant = classTableView.contentSize.height
-    }
     
     func setUpTableView() {
         classTableView.allowsMultipleSelection = false
@@ -123,9 +122,16 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
         }
     }
     
-    func miniPlayerPlayPauseButtonTapped(notification: NSNotification) {
+    func miniPlayerPlayPauseButtonTapped() {
         NSOperationQueue.mainQueue().addOperationWithBlock {
             self.audioManager.playLesson(self.audioManager.currentLesson)
+        }
+    }
+    
+    private func showMiniPlayer() {
+        if audioManager.hasCurrentTracks && isVisible {
+            ClassViewController.miniPlayerView.currentLesson = audioManager.currentLesson
+            PCAudioPlayerNotificationManager.defaultManager.postNotification(.ShowMiniPlayer)
         }
     }
     
@@ -178,8 +184,8 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     // MARK: Actions
     
     @IBAction func backButtonTapped() {
-        NSNotificationCenter.defaultCenter().postNotificationName(kHideMiniPlayer, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        PCAudioPlayerNotificationManager.defaultManager.postNotification(.HideMiniPlayer)
+        PCAudioPlayerNotificationManager.defaultManager.removeObserver(self)
         if let playbackObserver = playbackObserver {
             audioManager.player.removeTimeObserver(playbackObserver)
         }
@@ -205,6 +211,6 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
         vc.currentClass = currentClass
         vc.currentLesson = currentLesson
         presentViewController(vc, animated: true, completion: nil)
-        NSNotificationCenter.defaultCenter().postNotificationName(kHideMiniPlayer, object: nil)
+        PCAudioPlayerNotificationManager.defaultManager.postNotification(.HideMiniPlayer)
     }
 }

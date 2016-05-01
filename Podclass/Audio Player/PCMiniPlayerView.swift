@@ -30,13 +30,13 @@ class PCMiniPlayerView: UIView {
         }
     }
     weak var delegate: PCMiniPlayerDelegate?
-    
+    var audioManager: PCAudioManager {
+        return PCAudioManager.sharedInstance
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PCMiniPlayerView.hideMiniPlayer), name: kHideMiniPlayer, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PCMiniPlayerView.showMiniPlayer), name: kShowMiniPlayer, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PCMiniPlayerView.updateUIForNewTrack), name: kAudioStartedPlaying, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PCMiniPlayerView.updateUIForNewTrack), name: kAudioStoppedPlaying, object: nil)
+        setUpNotifications()
+
     }
     
     override func layoutSubviews() {
@@ -51,15 +51,22 @@ class PCMiniPlayerView: UIView {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        PCAudioPlayerNotificationManager.defaultManager.removeObserver(self)
     }
     
     // MARK:  Notifications
     
+    private func setUpNotifications() {
+        PCAudioPlayerNotificationManager.defaultManager.observerNotification(.HideMiniPlayer, observer: self, selector: #selector(PCMiniPlayerView.hideMiniPlayer))
+        PCAudioPlayerNotificationManager.defaultManager.observerNotification(.ShowMiniPlayer, observer: self, selector: #selector(PCMiniPlayerView.showMiniPlayer))
+        PCAudioPlayerNotificationManager.defaultManager.observerNotification(.AudioStartedPlaying, observer: self, selector: #selector(PCMiniPlayerView.updateUIForNewTrack))
+        PCAudioPlayerNotificationManager.defaultManager.observerNotification(.AudioStoppedPlaying, observer: self, selector: #selector(PCMiniPlayerView.updateUIForNewTrack))
+    }
+    
     func updateUIForNewTrack() {
-        self.lessonNumberLabel.text = "\(PCAudioManager.sharedInstance.currentLesson.number)"
-        self.lessonTitleLabel.text = PCAudioManager.sharedInstance.currentLesson.title
-        let playIconImage = PCAudioManager.sharedInstance.isPlaying ? UIImage(named: "pauseButton") : UIImage(named: "playButton")
+        self.lessonNumberLabel.text = "\(audioManager.currentLesson.number)"
+        self.lessonTitleLabel.text = audioManager.currentLesson.title
+        let playIconImage = audioManager.isPlaying ? UIImage(named: "pauseButton") : UIImage(named: "playButton")
         self.playButton.setImage(playIconImage, forState: .Normal)
     }
     
@@ -89,7 +96,7 @@ class PCMiniPlayerView: UIView {
     
     // MARK:  Actions
     @IBAction func playButtonTapped() {
-        NSNotificationCenter.defaultCenter().postNotificationName(kMiniPlayerPlayPauseButtonTapped, object: nil, userInfo: ["indexPath" : PCAudioManager.sharedInstance.currentLesson.indexPath])
+        PCAudioPlayerNotificationManager.defaultManager.postNotification(.MiniPlayerPlayPauseButtonTapped)
     }
     
     @IBAction func expandButtonTapped() {

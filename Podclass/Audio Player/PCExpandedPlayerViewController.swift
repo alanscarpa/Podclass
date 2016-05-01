@@ -14,7 +14,9 @@ class PCExpandedPlayerViewController: UIViewController {
     
     var currentClass = PCClass()
     var currentLesson = PCLesson()
-    let audioManager = PCAudioManager.sharedInstance
+    var audioManager: PCAudioManager {
+        return PCAudioManager.sharedInstance
+    }
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var timeProgressLabel: UILabel!
@@ -40,7 +42,8 @@ class PCExpandedPlayerViewController: UIViewController {
         classTitleLabel.text = currentClass.name
         updateTrackUI()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PCExpandedPlayerViewController.audioStartedPlaying), name: kAudioStartedPlaying, object: nil)
+        PCAudioPlayerNotificationManager.defaultManager.observerNotification(.AudioStartedPlaying, observer: self, selector: #selector(audioStartedPlaying))
+        PCAudioPlayerNotificationManager.defaultManager.observerNotification(.AudioFailed, observer: self, selector: #selector(audioFailed))
     }
     
     func setProgressSliderToCurrentTrackTime() {
@@ -68,6 +71,10 @@ class PCExpandedPlayerViewController: UIViewController {
     func audioStartedPlaying() {
         setUpPlaybackObserver()
         updateTrackUI()
+    }
+    
+    func audioFailed() {
+        setUpPlaybackObserver()
     }
     
     func sliderMoved() {
