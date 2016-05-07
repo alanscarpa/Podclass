@@ -42,8 +42,6 @@ class PCAudioManager: NSObject {
             } else if status == .Failed {
                 resetPlayer()
                 PCAudioPlayerNotificationManager.defaultManager.postNotification(.AudioFailed)
-//                let newItem = AVPlayerItem(URL: NSURL(string: currentLesson.trackURLString)!)
-//                player.replaceCurrentItemWithPlayerItem(newItem)
             } else if status == .Unknown {
                 // TODO: Buffering
             }

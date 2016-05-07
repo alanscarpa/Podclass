@@ -64,6 +64,7 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     func startedPlayingNextTrack() {
         if let oldIndexPath = lastTappedIndexPath {
             lastTappedIndexPath = NSIndexPath(forRow: oldIndexPath.row + 1, inSection: oldIndexPath.section)
+            classTableView.reloadData()
         }
     }
     
@@ -92,6 +93,11 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
         setUpPlaybackObserver()
         audioStoppedPlaying()
         showMiniPlayer()
+        if !Reachability.connectedToNetwork() {
+            presentViewController(UIAlertController().simpleAlert(.NoInternet), animated: true, completion: nil)
+        } else {
+            presentViewController(UIAlertController().simpleAlert(.GenericError), animated: true, completion: nil)
+        }
     }
     
     func setUpPlaybackObserver() {
