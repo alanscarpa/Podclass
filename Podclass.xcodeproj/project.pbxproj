@@ -10,8 +10,6 @@
 		457608221CBAB90700D13691 /* PCAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608211CBAB90700D13691 /* PCAudioPlayer.swift */; };
 		4576082B1CBC81D700D13691 /* PCMiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608291CBC81D700D13691 /* PCMiniPlayerView.swift */; };
 		4576082C1CBC81D700D13691 /* PCMiniPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */; };
-		457608371CC4FD6500D13691 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608341CC4FD6500D13691 /* APIKeys.swift */; };
-		457608381CC4FD6500D13691 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608351CC4FD6500D13691 /* Constants.swift */; };
 		457608401CC5009F00D13691 /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4576083C1CC5009F00D13691 /* ProximaNova-Light.otf */; };
 		457608411CC5009F00D13691 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4576083D1CC5009F00D13691 /* ProximaNova-Regular.otf */; };
 		457608421CC5009F00D13691 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4576083E1CC5009F00D13691 /* Quicksand-Light.ttf */; };
@@ -36,6 +34,9 @@
 		457608681CC5047700D13691 /* PCExpandedPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608661CC5047700D13691 /* PCExpandedPlayerViewController.swift */; };
 		457608691CC5047700D13691 /* PCExpandedPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457608671CC5047700D13691 /* PCExpandedPlayerViewController.xib */; };
 		4576086B1CC70E9F00D13691 /* PCSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576086A1CC70E9F00D13691 /* PCSlider.swift */; };
+		4576086D1CD6404B00D13691 /* PCAudioPlayerNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4576086C1CD6404B00D13691 /* PCAudioPlayerNotificationManager.swift */; };
+		457608711CDE982000D13691 /* UIAlertController+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608701CDE982000D13691 /* UIAlertController+Podclass.swift */; };
+		457608731CDE9B3000D13691 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608721CDE9B3000D13691 /* Reachability.swift */; };
 		4588E5AE1C9EEEFE0065BEF2 /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4588E5AC1C9EEEFE0065BEF2 /* ClassTableViewCell.swift */; };
 		4588E5AF1C9EEEFE0065BEF2 /* ClassTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4588E5AD1C9EEEFE0065BEF2 /* ClassTableViewCell.xib */; };
 		45DF04D71C9EC9F5005B6C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF04D61C9EC9F5005B6C8A /* AppDelegate.swift */; };
@@ -50,8 +51,6 @@
 		457608211CBAB90700D13691 /* PCAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCAudioPlayer.swift; sourceTree = "<group>"; };
 		457608291CBC81D700D13691 /* PCMiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMiniPlayerView.swift; sourceTree = "<group>"; };
 		4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCMiniPlayerView.xib; sourceTree = "<group>"; };
-		457608341CC4FD6500D13691 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
-		457608351CC4FD6500D13691 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		457608391CC4FED800D13691 /* Podclass-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Podclass-Bridging-Header.h"; sourceTree = "<group>"; };
 		4576083C1CC5009F00D13691 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
 		4576083D1CC5009F00D13691 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
@@ -77,6 +76,9 @@
 		457608661CC5047700D13691 /* PCExpandedPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCExpandedPlayerViewController.swift; sourceTree = "<group>"; };
 		457608671CC5047700D13691 /* PCExpandedPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCExpandedPlayerViewController.xib; sourceTree = "<group>"; };
 		4576086A1CC70E9F00D13691 /* PCSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCSlider.swift; sourceTree = "<group>"; };
+		4576086C1CD6404B00D13691 /* PCAudioPlayerNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCAudioPlayerNotificationManager.swift; sourceTree = "<group>"; };
+		457608701CDE982000D13691 /* UIAlertController+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Podclass.swift"; sourceTree = "<group>"; };
+		457608721CDE9B3000D13691 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		4588E5AC1C9EEEFE0065BEF2 /* ClassTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
 		4588E5AD1C9EEEFE0065BEF2 /* ClassTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassTableViewCell.xib; sourceTree = "<group>"; };
 		45DF04D31C9EC9F5005B6C8A /* Podclass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podclass.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				457608211CBAB90700D13691 /* PCAudioPlayer.swift */,
+				4576086C1CD6404B00D13691 /* PCAudioPlayerNotificationManager.swift */,
 				457608291CBC81D700D13691 /* PCMiniPlayerView.swift */,
 				4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */,
 				457608661CC5047700D13691 /* PCExpandedPlayerViewController.swift */,
@@ -137,9 +140,8 @@
 		457608331CC4FD0D00D13691 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				457608341CC4FD6500D13691 /* APIKeys.swift */,
-				457608351CC4FD6500D13691 /* Constants.swift */,
 				457608391CC4FED800D13691 /* Podclass-Bridging-Header.h */,
+				457608721CDE9B3000D13691 /* Reachability.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -151,6 +153,7 @@
 				4576084F1CC500EF00D13691 /* UIColor+Podclass.swift */,
 				457608501CC500EF00D13691 /* UIView+Podclass.swift */,
 				457608511CC500EF00D13691 /* UIViewController+Podclass.swift */,
+				457608701CDE982000D13691 /* UIAlertController+Podclass.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -400,19 +403,20 @@
 			files = (
 				457608681CC5047700D13691 /* PCExpandedPlayerViewController.swift in Sources */,
 				4576086B1CC70E9F00D13691 /* PCSlider.swift in Sources */,
+				457608711CDE982000D13691 /* UIAlertController+Podclass.swift in Sources */,
 				457608621CC5012100D13691 /* ClassViewController.swift in Sources */,
+				4576086D1CD6404B00D13691 /* PCAudioPlayerNotificationManager.swift in Sources */,
 				457608641CC5012100D13691 /* PCClassTableViewCell.swift in Sources */,
 				4576084B1CC500D200D13691 /* PCButton.swift in Sources */,
 				4576082B1CBC81D700D13691 /* PCMiniPlayerView.swift in Sources */,
 				4576084D1CC500D200D13691 /* PCView.swift in Sources */,
-				457608381CC4FD6500D13691 /* Constants.swift in Sources */,
 				4588E5AE1C9EEEFE0065BEF2 /* ClassTableViewCell.swift in Sources */,
 				45DF04D91C9EC9F5005B6C8A /* HomeViewController.swift in Sources */,
 				4576084C1CC500D200D13691 /* PCLabel.swift in Sources */,
 				4576085C1CC5010900D13691 /* SyllabusTableViewCell.swift in Sources */,
 				4576085A1CC5010900D13691 /* PitchViewController.swift in Sources */,
-				457608371CC4FD6500D13691 /* APIKeys.swift in Sources */,
 				457608461CC500B800D13691 /* PCClass.swift in Sources */,
+				457608731CDE9B3000D13691 /* Reachability.swift in Sources */,
 				457608471CC500B800D13691 /* PCLesson.swift in Sources */,
 				457608541CC500EF00D13691 /* UIView+Podclass.swift in Sources */,
 				45DF04D71C9EC9F5005B6C8A /* AppDelegate.swift in Sources */,
