@@ -1,6 +1,9 @@
 use_frameworks! 
+
+target 'Podclass' do
 pod 'EasyAnimation'
-pod 'Alamofire'
+pod 'Alamofire', '~> 3.5'
 pod 'SVProgressHUD'
 pod 'Intrepid'
 pod 'PureLayout'
+end
