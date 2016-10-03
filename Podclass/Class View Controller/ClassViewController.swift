@@ -150,7 +150,7 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath:
         IndexPath) -> UITableViewCell {
-        currentClass.syllabus[(indexPath as NSIndexPath).row].indexPath = indexPath
+        currentClass.syllabus[(indexPath as NSIndexPath).row].indexPath = indexPath as NSIndexPath
         let lessonForRow = currentClass.syllabus[(indexPath as NSIndexPath).row]
         let cell = tableView.dequeueReusableCell(withIdentifier: PCClassTableViewCell.className(), for: indexPath) as! PCClassTableViewCell
         cell.configureForLesson(lessonForRow)
