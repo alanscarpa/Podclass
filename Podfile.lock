@@ -1,29 +1,24 @@
 PODS:
-  - Alamofire (3.5.0)
-  - EasyAnimation (1.0.4)
-  - Intrepid (0.5.2):
-    - Intrepid/Core (= 0.5.2)
-  - Intrepid/Core (0.5.2):
-    - IP-UIKit-Wisdom (= 0.0.9)
-  - IP-UIKit-Wisdom (0.0.9)
-  - PureLayout (3.0.1)
+  - Alamofire (4.0.1)
+  - EasyAnimation (1.1.1)
+  - PureLayout (3.0.2)
+  - ReachabilitySwift (3)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.5)
+  - Alamofire
   - EasyAnimation
-  - Intrepid
   - PureLayout
+  - ReachabilitySwift
   - SVProgressHUD
 
 SPEC CHECKSUMS:
-  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
-  EasyAnimation: 4aabd439b4038f48d72939cc19d6220363b3206e
-  Intrepid: a72e2da8e411ddb04d74e348b3ffbfb6e6197a37
-  IP-UIKit-Wisdom: cd9838571e97427a0c61c05d856eaaca9afd7c1a
-  PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  EasyAnimation: e67601df3eb57e86c570948a250ce162a5665b8a
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 995f695ece2756416c8d0528b01e2572b859e1c7
+PODFILE CHECKSUM: 1ace9a3bf8b9e9ba9ace0ba153d65169f2da70a0
 
 COCOAPODS: 1.0.1

@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var listenAndLearnLabel: UILabel!
     @IBOutlet weak var classTableView: UITableView!
     
-    var dummyModels = []
+    var dummyModels: [PCClass] = []
     var animationDidPlay = false
     
     @IBOutlet weak var podclassLabelTopConstraint: NSLayoutConstraint!
@@ -27,12 +27,12 @@ class HomeViewController: UIViewController {
         self.createDummyModels()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !self.animationDidPlay {
             self.launchIntroAnimation()
@@ -40,22 +40,22 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private func setUp() {
+    fileprivate func setUp() {
         let statusBarBackgroundView = UIView(frame:
-            CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: 20.0)
+            CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: 20.0)
         )
-        statusBarBackgroundView.backgroundColor = UIColor.whiteColor()
-        UIApplication.sharedApplication().keyWindow?.addSubview(statusBarBackgroundView)
-        topBarView.setBottomBorderWithColor(UIColor.pcOrange().CGColor, width: 2.0)
+        statusBarBackgroundView.backgroundColor = UIColor.white
+        UIApplication.shared.keyWindow?.addSubview(statusBarBackgroundView)
+        topBarView.setBottomBorderWithColor(UIColor.pcOrange().cgColor, width: 2.0)
         self.topBarView.alpha = 0
         self.podclassLabel.alpha = 0
         self.listenAndLearnLabel.alpha = 0
         self.classTableView.alpha = 0
-        self.classTableView.registerNib(UINib(nibName: ClassTableViewCell.className(), bundle: nil), forCellReuseIdentifier: ClassTableViewCell.className())
+        self.classTableView.register(UINib(nibName: ClassTableViewCell.className(), bundle: nil), forCellReuseIdentifier: ClassTableViewCell.className())
         self.classTableView.backgroundColor = UIColor(patternImage: UIImage(named: "tableViewBackground")!)
     }
     
-    private func createDummyModels() {
+    fileprivate func createDummyModels() {
         let class1 = PCClass()
         class1.name = "How to Ace the Product Management Interview"
         class1.homeImageName = "girlCoffee"
@@ -105,17 +105,17 @@ class HomeViewController: UIViewController {
         self.dummyModels = [class1, class2, class3]
     }
     
-    private func launchIntroAnimation() {
-        UIView.animateAndChainWithDuration(1.0, delay: 0,
+    fileprivate func launchIntroAnimation() {
+        UIView.animateAndChain(withDuration: 1.0, delay: 0,
             options: [], animations: {
                 self.podclassLabel.alpha = 1
-            }, completion: nil).animateWithDuration(1.0, delay: 0.05, options: [.CurveEaseIn], animations: {
+            }, completion: nil).animate(withDuration: 1.0, delay: 0.05, options: [.curveEaseIn], animations: {
                 self.listenAndLearnLabel.alpha = 1
-            }, completion: nil).animateWithDuration(2, delay: 0.5, options: [.CurveEaseOut], animations: {
+            }, completion: nil).animate(withDuration: 2, delay: 0.5, options: [.curveEaseOut], animations: {
                 self.podclassLabel.center.y = (self.navigationController?.navigationBar.bounds.maxY)!
                 self.listenAndLearnLabel.center.y += (self.navigationController?.navigationBar.bounds.maxY)!
                 self.listenAndLearnLabel.alpha = 0
-            }, completion: nil).animateWithDuration(0.25, delay: 0, options: [.CurveEaseOut], animations: {
+            }, completion: nil).animate(withDuration: 0.25, delay: 0, options: [.curveEaseOut], animations: {
                 self.topBarView.alpha = 1
                 self.classTableView.alpha = 1
             }, completion: { complete in
@@ -127,29 +127,25 @@ class HomeViewController: UIViewController {
     
     // MARK: UITableViewDataSource
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dummyModels.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(ClassTableViewCell.className(), forIndexPath: indexPath) as! ClassTableViewCell
-        if let pcClass = self.dummyModels[indexPath.row] as? PCClass {
-            cell.configureForClass(pcClass)
-        }
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ClassTableViewCell.className(), for: indexPath) as! ClassTableViewCell
+        let pcClass = self.dummyModels[(indexPath as NSIndexPath).row]
+        cell.configureForClass(pcClass)
         return cell
     }
     
     // MARK: UITableViewDelegate
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)  {
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath)  {
         let vc = PitchViewController.initWithDefaultNib()
-        if let currentClass = self.dummyModels[indexPath.row] as? PCClass {
-            vc.currentClass = currentClass
-        }
+        let currentClass = self.dummyModels[(indexPath as NSIndexPath).row]
+        vc.currentClass = currentClass
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
 
 }
 

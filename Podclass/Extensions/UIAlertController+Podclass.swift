@@ -12,22 +12,22 @@ import Foundation
 
 extension UIAlertController {
     enum Alert {
-        case NoInternet
-        case GenericError
+        case noInternet
+        case genericError
     }
-    func simpleAlert(type: Alert) -> UIAlertController {
+    func simpleAlert(_ type: Alert) -> UIAlertController {
         var title = ""
         var message = ""
         switch type {
-        case .NoInternet:
+        case .noInternet:
             title = "No Internet"
             message = "You've lost your internet connection.  Please reconnect to keep learning!"
-        case .GenericError:
+        case .genericError:
             title = "Something Went Wrong"
             message = "We're sorry!  Something went wrong - please try again."
         }
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        let cancel = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(cancel)
         return alertController
     }

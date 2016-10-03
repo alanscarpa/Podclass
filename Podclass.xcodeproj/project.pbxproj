@@ -305,6 +305,7 @@
 					45DF04D21C9EC9F5005B6C8A = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 98E8SVTQ29;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -554,7 +555,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.podclass.Podclass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Podclass/Utilities/Podclass-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -573,7 +574,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.podclass.Podclass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Podclass/Utilities/Podclass-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -12,14 +12,14 @@ class PitchViewController: UIViewController {
     
     var currentClass = PCClass()
     
-    @IBOutlet private weak var headerImageView: UIImageView!
-    @IBOutlet private weak var classTitleLabel: PCLabel!
-    @IBOutlet private weak var summaryBodyLabel: UILabel!
-    @IBOutlet private weak var whatYouLearnBodyLabel: UILabel!
-    @IBOutlet private weak var whoItsForBodyLabel: UILabel!
-    @IBOutlet private weak var producedByBodyLabel: UILabel!
-    @IBOutlet private weak var syllabusTableView: UITableView!
-    @IBOutlet private weak var syllabusTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var headerImageView: UIImageView!
+    @IBOutlet fileprivate weak var classTitleLabel: PCLabel!
+    @IBOutlet fileprivate weak var summaryBodyLabel: UILabel!
+    @IBOutlet fileprivate weak var whatYouLearnBodyLabel: UILabel!
+    @IBOutlet fileprivate weak var whoItsForBodyLabel: UILabel!
+    @IBOutlet fileprivate weak var producedByBodyLabel: UILabel!
+    @IBOutlet fileprivate weak var syllabusTableView: UITableView!
+    @IBOutlet fileprivate weak var syllabusTableViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var buttonBackgroundView: UIView!
     override func viewDidLoad() {
@@ -34,11 +34,11 @@ class PitchViewController: UIViewController {
         self.syllabusTableViewHeightConstraint.constant = syllabusTableView.contentSize.height
     }
     
-    private func setUp() {
-        self.syllabusTableView.registerNib(UINib(nibName: SyllabusTableViewCell.className(), bundle: nil), forCellReuseIdentifier: SyllabusTableViewCell.className())
+    fileprivate func setUp() {
+        self.syllabusTableView.register(UINib(nibName: SyllabusTableViewCell.className(), bundle: nil), forCellReuseIdentifier: SyllabusTableViewCell.className())
     }
     
-    private func configureUI() {
+    fileprivate func configureUI() {
         
         self.headerImageView.image = UIImage(named: self.currentClass.homeImageName)
         self.classTitleLabel.text = self.currentClass.name
@@ -51,7 +51,7 @@ class PitchViewController: UIViewController {
     // Actions
     
     @IBAction func backButtonTapped() {
-        self.navigationController?.popViewControllerAnimated(true)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func startClassButtonTapped() {
@@ -62,13 +62,13 @@ class PitchViewController: UIViewController {
     
     // MARK: UITableViewDataSource
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.currentClass.syllabus.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(SyllabusTableViewCell.className(), forIndexPath: indexPath) as! SyllabusTableViewCell
-        cell.configureForLesson(self.currentClass.syllabus[indexPath.row])
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: SyllabusTableViewCell.className(), for: indexPath) as! SyllabusTableViewCell
+        cell.configureForLesson(self.currentClass.syllabus[(indexPath as NSIndexPath).row])
         return cell
     }
     

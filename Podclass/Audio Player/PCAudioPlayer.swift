@@ -18,42 +18,42 @@ class PCAudioManager: NSObject {
     var player = AVPlayer()
     var currentTrackURLString: String? {
         get {
-            return (self.player.currentItem?.asset as? AVURLAsset)?.URL.absoluteString
+            return (self.player.currentItem?.asset as? AVURLAsset)?.url.absoluteString
         }
     }
 
     override init() {
         super.init()
         addKVO()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(trackFinishedPlaying), name: AVPlayerItemDidPlayToEndTimeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(trackFinishedPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
     deinit {
         removeKVO()
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "currentItem.status" {
             let status = (object as! AVPlayer).currentItem?.status
             print(status?.rawValue)
-            if status == .ReadyToPlay {
+            if status == .readyToPlay {
                 PCAudioPlayerNotificationManager.defaultManager.postNotification(.AudioStartedPlaying)
-            } else if status == .Failed {
+            } else if status == .failed {
                 resetPlayer()
                 PCAudioPlayerNotificationManager.defaultManager.postNotification(.AudioFailed)
-            } else if status == .Unknown {
+            } else if status == .unknown {
                 // TODO: Buffering
             }
         }
         
         if keyPath == "status" {
             let status = (object as! AVPlayer).status
-            if status == .ReadyToPlay {
+            if status == .readyToPlay {
                 print("Player ready to play")
-            } else if status == .Failed {
+            } else if status == .failed {
                 print("Player failed")
-            } else if status == .Unknown {
+            } else if status == .unknown {
                 // TODO: Buffering
             }
         }
@@ -69,11 +69,11 @@ class PCAudioManager: NSObject {
         }
     }
     
-    func isPlayingLesson(lesson: PCLesson) -> Bool {
+    func isPlayingLesson(_ lesson: PCLesson) -> Bool {
         return isPlaying && lesson === self.currentLesson
     }
     
-    func hasClass(theClass: PCClass) -> Bool {
+    func hasClass(_ theClass: PCClass) -> Bool {
         return theClass === self.currentClass
     }
     
@@ -97,7 +97,7 @@ class PCAudioManager: NSObject {
     
     // MARK: Player Actions
     
-    func playLesson(lesson: PCLesson) {
+    func playLesson(_ lesson: PCLesson) {
         self.currentLesson = lesson
         if self.currentItemIsLesson(lesson) {
             if self.player.rate != 0.0 {
@@ -108,7 +108,7 @@ class PCAudioManager: NSObject {
                 self.playCurrentTrack()
             }
         } else {
-            if let url = NSURL(string: lesson.trackURLString) {
+            if let url = URL(string: lesson.trackURLString) {
                 self.playNewTrack(url)
             } else {
                 print("ERROR:  NO URL")
@@ -119,7 +119,7 @@ class PCAudioManager: NSObject {
     func playNextTrack() {
         if hasNextTrack {
             currentLesson = currentClass.syllabus[currentLesson.index + 1]
-            if let url = NSURL(string: currentLesson.trackURLString) {
+            if let url = URL(string: currentLesson.trackURLString) {
                 PCAudioPlayerNotificationManager.defaultManager.postNotification(.StartedPlayingNextTrack)
                 self.playNewTrack(url)
             } else {
@@ -131,7 +131,7 @@ class PCAudioManager: NSObject {
     func playPreviousTrack() {
         if hasPreviousTrack {
             currentLesson = currentClass.syllabus[currentLesson.index - 1]
-            if let url = NSURL(string: currentLesson.trackURLString) {
+            if let url = URL(string: currentLesson.trackURLString) {
                 PCAudioPlayerNotificationManager.defaultManager.postNotification(.StartedPlayingPreviousTrack)
                 self.playNewTrack(url)
             } else {
@@ -147,9 +147,9 @@ class PCAudioManager: NSObject {
             playNextTrack()
         } else {
             let trackURL = currentClass.syllabus[0].trackURLString
-            if let url = NSURL(string: trackURL) {
-                let newItem = AVPlayerItem(URL: url)
-                player.replaceCurrentItemWithPlayerItem(newItem)
+            if let url = URL(string: trackURL) {
+                let newItem = AVPlayerItem(url: url)
+                player.replaceCurrentItem(with: newItem)
                 currentLesson = currentClass.syllabus[0]
             }
         }
@@ -157,42 +157,42 @@ class PCAudioManager: NSObject {
     
     // MARK: Private
     
-    private func playNewTrack(trackURL: NSURL) {
-        let newItem = AVPlayerItem(URL: trackURL)
-        self.player.replaceCurrentItemWithPlayerItem(newItem)
+    fileprivate func playNewTrack(_ trackURL: URL) {
+        let newItem = AVPlayerItem(url: trackURL)
+        self.player.replaceCurrentItem(with: newItem)
         self.playCurrentTrack()
     }
     
-    private func playCurrentTrack() {
+    fileprivate func playCurrentTrack() {
         // TODO:  Handle network failures and no internet
         player.play()
-        if player.currentItem?.status == .ReadyToPlay {
+        if player.currentItem?.status == .readyToPlay {
             PCAudioPlayerNotificationManager.defaultManager.postNotification(.AudioStartedPlaying)
         }
     }
     
-    private func pauseCurrentTrack() {
+    fileprivate func pauseCurrentTrack() {
         self.player.pause()
         PCAudioPlayerNotificationManager.defaultManager.postNotification(.AudioStoppedPlaying)
     }
     
-    private func currentItemIsLesson(lesson: PCLesson) -> Bool {
+    fileprivate func currentItemIsLesson(_ lesson: PCLesson) -> Bool {
         return currentTrackURLString == lesson.trackURLString
     }
     
-    private func resetPlayer() {
+    fileprivate func resetPlayer() {
         removeKVO()
         player = AVPlayer()
         addKVO()
     }
     
-    private func removeKVO() {
+    fileprivate func removeKVO() {
         player.removeObserver(self, forKeyPath: "currentItem.status")
         player.removeObserver(self, forKeyPath: "status")
     }
     
-    private func addKVO() {
-        player.addObserver(self, forKeyPath: "currentItem.status", options: [.New], context: nil)
-        player.addObserver(self, forKeyPath: "status", options: [.New], context: nil)
+    fileprivate func addKVO() {
+        player.addObserver(self, forKeyPath: "currentItem.status", options: [.new], context: nil)
+        player.addObserver(self, forKeyPath: "status", options: [.new], context: nil)
     }
 }

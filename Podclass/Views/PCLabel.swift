@@ -22,7 +22,7 @@ class PCLabel: UILabel {
     
     func setUp() {
         self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
-        self.layer.borderColor = UIColor.pcOrange().CGColor
+        self.layer.borderColor = UIColor.pcOrange().cgColor
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 4
     }

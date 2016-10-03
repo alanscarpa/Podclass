@@ -26,20 +26,20 @@ struct PCAudioPlayerNotificationManager {
     
     // MARK: Post
     
-    func postNotification(notification: PCAudioPlayerNotification) {
-        NSNotificationCenter.defaultCenter().postNotificationName(notification.rawValue, object: nil)
+    func postNotification(_ notification: PCAudioPlayerNotification) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: notification.rawValue), object: nil)
     }
     
     // MARK: Observe
     
-    func observerNotification(notification: PCAudioPlayerNotification, observer: AnyObject, selector: Selector) {
-        NSNotificationCenter.defaultCenter().addObserver(observer, selector: selector, name: notification.rawValue, object: nil)
+    func observerNotification(_ notification: PCAudioPlayerNotification, observer: AnyObject, selector: Selector) {
+        NotificationCenter.default.addObserver(observer, selector: selector, name: NSNotification.Name(rawValue: notification.rawValue), object: nil)
     }
     
     // MARK: Removal
     
-    func removeObserver(observer: AnyObject) {
-        NSNotificationCenter.defaultCenter().removeObserver(observer)
+    func removeObserver(_ observer: AnyObject) {
+        NotificationCenter.default.removeObserver(observer)
     }
     
 }

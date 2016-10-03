@@ -10,10 +10,10 @@ import UIKit
 
 class SyllabusTableViewCell: UITableViewCell {
 
-    @IBOutlet private weak var lessonNumberLabel: UILabel!
+    @IBOutlet fileprivate weak var lessonNumberLabel: UILabel!
     @IBOutlet weak var lessonTitleLabel: UILabel!
     
-    func configureForLesson(lesson: PCLesson) {
+    func configureForLesson(_ lesson: PCLesson) {
         self.lessonNumberLabel.text = "\(lesson.number))."
         self.lessonTitleLabel.text = "\(lesson.title)"
     }

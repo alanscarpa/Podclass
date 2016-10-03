@@ -42,10 +42,10 @@ class PCMiniPlayerView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         if !self.constraintsAreSet {
-            self.autoSetDimension(.Height, toSize: 70)
-            self.autoPinEdge(.Leading, toEdge: .Leading, ofView: self.superview!)
-            self.autoPinEdge(.Trailing, toEdge: .Trailing, ofView: self.superview!)
-            self.bottomConstraint = self.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.superview!, withOffset: 70)
+            self.autoSetDimension(.height, toSize: 70)
+            self.autoPinEdge(.leading, to: .leading, of: self.superview!)
+            self.autoPinEdge(.trailing, to: .trailing, of: self.superview!)
+            self.bottomConstraint = self.autoPinEdge(.bottom, to: .bottom, of: self.superview!, withOffset: 70)
             self.constraintsAreSet = true
         }
     }
@@ -56,7 +56,7 @@ class PCMiniPlayerView: UIView {
     
     // MARK:  Notifications
     
-    private func setUpNotifications() {
+    fileprivate func setUpNotifications() {
         PCAudioPlayerNotificationManager.defaultManager.observerNotification(.HideMiniPlayer, observer: self, selector: #selector(PCMiniPlayerView.hideMiniPlayer))
         PCAudioPlayerNotificationManager.defaultManager.observerNotification(.ShowMiniPlayer, observer: self, selector: #selector(PCMiniPlayerView.showMiniPlayer))
         PCAudioPlayerNotificationManager.defaultManager.observerNotification(.AudioStartedPlaying, observer: self, selector: #selector(PCMiniPlayerView.updateUIForNewTrack))
@@ -67,13 +67,13 @@ class PCMiniPlayerView: UIView {
         self.lessonNumberLabel.text = "\(audioManager.currentLesson.number)"
         self.lessonTitleLabel.text = audioManager.currentLesson.title
         let playIconImage = audioManager.isPlaying ? UIImage(named: "pauseButton") : UIImage(named: "playButton")
-        self.playButton.setImage(playIconImage, forState: .Normal)
+        self.playButton.setImage(playIconImage, for: UIControlState())
     }
     
     func showMiniPlayer() {
         if !self.isShowing {
             self.isShowing = !self.isShowing
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 self.bottomConstraint.constant = 0
                 self.layoutIfNeeded()
             })
@@ -83,7 +83,7 @@ class PCMiniPlayerView: UIView {
     func hideMiniPlayer() {
         if self.isShowing {
             self.isShowing = !self.isShowing
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 self.bottomConstraint.constant = 70
                 self.layoutIfNeeded()
             })
@@ -91,7 +91,7 @@ class PCMiniPlayerView: UIView {
     }
     
     func resetToInitialState() {
-        playButton.setImage(UIImage(named: "playButton"), forState: .Normal)
+        playButton.setImage(UIImage(named: "playButton"), for: UIControlState())
     }
     
     // MARK:  Actions

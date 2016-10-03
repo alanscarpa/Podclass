@@ -15,7 +15,7 @@ class PCView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         if let topBorderColor = self.topBorderColor {
-            self.setTopBorderWithColor(topBorderColor.CGColor, width: 2)
+            self.setTopBorderWithColor(topBorderColor.cgColor, width: 2)
         }
     }
     

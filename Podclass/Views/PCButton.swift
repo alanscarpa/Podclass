@@ -21,9 +21,9 @@ class PCButton: UIButton {
     }
     
     func setUp() {
-        self.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.setTitleColor(UIColor.white, for: UIControlState())
         self.backgroundColor = UIColor.pcOrange()
-        self.layer.borderColor = UIColor.pcOrange().CGColor
+        self.layer.borderColor = UIColor.pcOrange().cgColor
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 8
         self.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10)

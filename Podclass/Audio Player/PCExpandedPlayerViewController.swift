@@ -32,14 +32,14 @@ class PCExpandedPlayerViewController: UIViewController {
         super.viewDidLoad()
         setProgressSliderToCurrentTrackTime()
         setUpPlaybackObserver()
-        progressSlider.addTarget(self, action: #selector(PCExpandedPlayerViewController.sliderMoved), forControlEvents: .ValueChanged)
+        progressSlider.addTarget(self, action: #selector(PCExpandedPlayerViewController.sliderMoved), for: .valueChanged)
         
         if let currentItem = audioManager.player.currentItem {
             totalSecondsOfCurrentTrack = CMTimeGetSeconds(currentItem.duration)
             timeLeftLabel.text = timeFormatted(Int(totalSecondsOfCurrentTrack))
         }
         
-        UISlider.appearance().setThumbImage(UIImage(named: "sliderImage"), forState: .Normal)
+        UISlider.appearance().setThumbImage(UIImage(named: "sliderImage"), for: UIControlState())
         
         mainImageView.image = UIImage(named: currentClass.homeImageName)
         classTitleLabel.text = currentClass.name
@@ -62,15 +62,15 @@ class PCExpandedPlayerViewController: UIViewController {
         setUpPlaybackObserver()
         updateTrackUI()
         if !Reachability.connectedToNetwork() {
-            presentViewController(UIAlertController().simpleAlert(.NoInternet), animated: true, completion: nil)
+            present(UIAlertController().simpleAlert(.noInternet), animated: true, completion: nil)
         } else {
-            presentViewController(UIAlertController().simpleAlert(.GenericError), animated: true, completion: nil)
+            present(UIAlertController().simpleAlert(.genericError), animated: true, completion: nil)
         }
     }
     
     func setProgressSliderToCurrentTrackTime() {
         if let currentItem = self.audioManager.player.currentItem {
-            let endTime = CMTimeConvertScale(currentItem.asset.duration, self.audioManager.player.currentTime().timescale, .RoundHalfAwayFromZero)
+            let endTime = CMTimeConvertScale(currentItem.asset.duration, self.audioManager.player.currentTime().timescale, .roundHalfAwayFromZero)
             if CMTimeCompare(endTime, kCMTimeZero) != 0 {
                 let normalizedTime: Float = Float(audioManager.player.currentTime().value) / Float(endTime.value)
                 self.updateProgressSlider(normalizedTime)
@@ -89,24 +89,24 @@ class PCExpandedPlayerViewController: UIViewController {
     func updateTrackUI() {
         lessonTitleLabel.text = audioManager.currentLesson.title
         let playIconImage = audioManager.isPlaying ? UIImage(named: "pauseButton") : UIImage(named: "playButton")
-        playPauseButton.setImage(playIconImage, forState: .Normal)
+        playPauseButton.setImage(playIconImage, for: UIControlState())
     }
     
     func sliderMoved() {
         if let currentItem = audioManager.player.currentItem {
             let newTime = CMTimeMakeWithSeconds(Double(progressSlider.value) * CMTimeGetSeconds(currentItem.duration), audioManager.player.currentTime().timescale);
-            audioManager.player.seekToTime(newTime)
+            audioManager.player.seek(to: newTime)
         }
     }
 
     func setUpPlaybackObserver() {
         let interval = CMTimeMake(60, 1000)
-        playbackObserver = audioManager.player.addPeriodicTimeObserverForInterval(interval, queue: dispatch_get_main_queue()) { time in
+        playbackObserver = audioManager.player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) { time in
             self.setProgressSliderToCurrentTrackTime()
-        }
+        } as AnyObject?
     }
     
-    func timeFormatted(totalSeconds: Int) -> String {
+    func timeFormatted(_ totalSeconds: Int) -> String {
         let seconds: Int = totalSeconds % 60
         let minutes: Int = (totalSeconds / 60) % 60
         let hours: Int = totalSeconds / 3600
@@ -117,7 +117,7 @@ class PCExpandedPlayerViewController: UIViewController {
         }
     }
     
-    func updateProgressSlider(value: Float) {
+    func updateProgressSlider(_ value: Float) {
         progressSlider.value = value
     }
     
@@ -125,7 +125,7 @@ class PCExpandedPlayerViewController: UIViewController {
     
     @IBAction func playPauseButtonTapped() {
         let playIconImage = !audioManager.isPlaying ? UIImage(named: "pauseButton") : UIImage(named: "playButton")
-        playPauseButton.setImage(playIconImage, forState: .Normal)
+        playPauseButton.setImage(playIconImage, for: UIControlState())
         audioManager.playLesson(audioManager.currentLesson)
     }
     
@@ -133,7 +133,7 @@ class PCExpandedPlayerViewController: UIViewController {
         if audioManager.hasNextTrack {
             SVProgressHUD.show()
             removePlaybackObserver()
-            NSOperationQueue.mainQueue().addOperationWithBlock {
+            OperationQueue.main.addOperation {
                 self.audioManager.playNextTrack()
             }
         }
@@ -143,7 +143,7 @@ class PCExpandedPlayerViewController: UIViewController {
         if audioManager.hasPreviousTrack {
             SVProgressHUD.show()
             removePlaybackObserver()
-            NSOperationQueue.mainQueue().addOperationWithBlock {
+            OperationQueue.main.addOperation {
                 self.audioManager.playPreviousTrack()
             }
         }
@@ -151,14 +151,14 @@ class PCExpandedPlayerViewController: UIViewController {
     
     @IBAction func downArrowButtonTapped() {
         removePlaybackObserver()
-        progressSlider.removeTarget(self, action: nil, forControlEvents: .ValueChanged)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        dismissViewControllerAnimated(true, completion: nil)
+        progressSlider.removeTarget(self, action: nil, for: .valueChanged)
+        NotificationCenter.default.removeObserver(self)
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: Private
     
-    private func removePlaybackObserver() {
+    fileprivate func removePlaybackObserver() {
         if let playbackObserver = playbackObserver {
             audioManager.player.removeTimeObserver(playbackObserver)
             self.playbackObserver = nil
