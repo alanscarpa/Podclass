@@ -19,10 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        SVProgressHUD.setDefaultStyle(.custom)
-        SVProgressHUD.setForegroundColor(UIColor.white)
-        SVProgressHUD.setBackgroundColor(UIColor.pcTransOrange())
-        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.defaultSetUp()
         try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         return true
     }

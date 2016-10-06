@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		452142061DA7035D00FCBF62 /* SVProgressHUD+Podclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452142051DA7035D00FCBF62 /* SVProgressHUD+Podclass.swift */; };
 		457608221CBAB90700D13691 /* PCAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608211CBAB90700D13691 /* PCAudioPlayer.swift */; };
 		4576082B1CBC81D700D13691 /* PCMiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457608291CBC81D700D13691 /* PCMiniPlayerView.swift */; };
 		4576082C1CBC81D700D13691 /* PCMiniPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		452142051DA7035D00FCBF62 /* SVProgressHUD+Podclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SVProgressHUD+Podclass.swift"; sourceTree = "<group>"; };
 		457608211CBAB90700D13691 /* PCAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCAudioPlayer.swift; sourceTree = "<group>"; };
 		457608291CBC81D700D13691 /* PCMiniPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMiniPlayerView.swift; sourceTree = "<group>"; };
 		4576082A1CBC81D700D13691 /* PCMiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PCMiniPlayerView.xib; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				457608501CC500EF00D13691 /* UIView+Podclass.swift */,
 				457608511CC500EF00D13691 /* UIViewController+Podclass.swift */,
 				457608701CDE982000D13691 /* UIAlertController+Podclass.swift */,
+				452142051DA7035D00FCBF62 /* SVProgressHUD+Podclass.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				457608731CDE9B3000D13691 /* Reachability.swift in Sources */,
 				457608471CC500B800D13691 /* PCLesson.swift in Sources */,
 				457608541CC500EF00D13691 /* UIView+Podclass.swift in Sources */,
+				452142061DA7035D00FCBF62 /* SVProgressHUD+Podclass.swift in Sources */,
 				45DF04D71C9EC9F5005B6C8A /* AppDelegate.swift in Sources */,
 				457608521CC500EF00D13691 /* NSObject+Podclass.swift in Sources */,
 				457608551CC500EF00D13691 /* UIViewController+Podclass.swift in Sources */,

@@ -23,20 +23,20 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setUp()
-        self.createDummyModels()
+        setUp()
+        createDummyModels()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !self.animationDidPlay {
-            self.launchIntroAnimation()
-            self.animationDidPlay = true
+        if !animationDidPlay {
+            launchIntroAnimation()
+            animationDidPlay = true
         }
     }
     
@@ -47,12 +47,12 @@ class HomeViewController: UIViewController {
         statusBarBackgroundView.backgroundColor = UIColor.white
         UIApplication.shared.keyWindow?.addSubview(statusBarBackgroundView)
         topBarView.setBottomBorderWithColor(UIColor.pcOrange().cgColor, width: 2.0)
-        self.topBarView.alpha = 0
-        self.podclassLabel.alpha = 0
-        self.listenAndLearnLabel.alpha = 0
-        self.classTableView.alpha = 0
-        self.classTableView.register(UINib(nibName: ClassTableViewCell.className(), bundle: nil), forCellReuseIdentifier: ClassTableViewCell.className())
-        self.classTableView.backgroundColor = UIColor(patternImage: UIImage(named: "tableViewBackground")!)
+        topBarView.alpha = 0
+        podclassLabel.alpha = 0
+        listenAndLearnLabel.alpha = 0
+        classTableView.alpha = 0
+        classTableView.register(UINib(nibName: ClassTableViewCell.className(), bundle: nil), forCellReuseIdentifier: ClassTableViewCell.className())
+        classTableView.backgroundColor = UIColor(patternImage: UIImage(named: "tableViewBackground")!)
     }
     
     fileprivate func createDummyModels() {
@@ -102,7 +102,7 @@ class HomeViewController: UIViewController {
         let class3 = PCClass()
         class3.name = "Designing for Mobile"
         class3.homeImageName = "computerHands"
-        self.dummyModels = [class1, class2, class3]
+        dummyModels = [class1, class2, class3]
     }
     
     fileprivate func launchIntroAnimation() {
@@ -128,12 +128,12 @@ class HomeViewController: UIViewController {
     // MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dummyModels.count
+        return dummyModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ClassTableViewCell.className(), for: indexPath) as! ClassTableViewCell
-        let pcClass = self.dummyModels[(indexPath as NSIndexPath).row]
+        let pcClass = dummyModels[indexPath.row]
         cell.configureForClass(pcClass)
         return cell
     }
@@ -142,9 +142,9 @@ class HomeViewController: UIViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath)  {
         let vc = PitchViewController.initWithDefaultNib()
-        let currentClass = self.dummyModels[(indexPath as NSIndexPath).row]
+        let currentClass = dummyModels[indexPath.row]
         vc.currentClass = currentClass
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }
