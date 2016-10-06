@@ -20,32 +20,31 @@ class PitchViewController: UIViewController {
     @IBOutlet fileprivate weak var producedByBodyLabel: UILabel!
     @IBOutlet fileprivate weak var syllabusTableView: UITableView!
     @IBOutlet fileprivate weak var syllabusTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var buttonBackgroundView: UIView!
     
-    @IBOutlet weak var buttonBackgroundView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.automaticallyAdjustsScrollViewInsets = false
-        self.setUp()
-        self.configureUI()
+        setUp()
+        configureUI()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.syllabusTableViewHeightConstraint.constant = syllabusTableView.contentSize.height
+        syllabusTableViewHeightConstraint.constant = syllabusTableView.contentSize.height
     }
     
     fileprivate func setUp() {
-        self.syllabusTableView.register(UINib(nibName: SyllabusTableViewCell.className(), bundle: nil), forCellReuseIdentifier: SyllabusTableViewCell.className())
+        automaticallyAdjustsScrollViewInsets = false
+        syllabusTableView.register(UINib(nibName: SyllabusTableViewCell.className(), bundle: nil), forCellReuseIdentifier: SyllabusTableViewCell.className())
     }
     
     fileprivate func configureUI() {
-        
-        self.headerImageView.image = UIImage(named: self.currentClass.homeImageName)
-        self.classTitleLabel.text = self.currentClass.name
-        self.summaryBodyLabel.text = self.currentClass.summary
-        self.whatYouLearnBodyLabel.text = self.currentClass.whatYouLearn
-        self.whoItsForBodyLabel.text = self.currentClass.whoItsFor
-        self.producedByBodyLabel.text = self.currentClass.producedBy
+        headerImageView.image = UIImage(named: currentClass.homeImageName)
+        classTitleLabel.text = currentClass.name
+        summaryBodyLabel.text = currentClass.summary
+        whatYouLearnBodyLabel.text = currentClass.whatYouLearn
+        whoItsForBodyLabel.text = currentClass.whoItsFor
+        producedByBodyLabel.text = currentClass.producedBy
     }
     
     // Actions
@@ -56,23 +55,19 @@ class PitchViewController: UIViewController {
     
     @IBAction func startClassButtonTapped() {
         let classVC = ClassViewController.initWithDefaultNib()
-        classVC.currentClass = self.currentClass
-        self.navigationController?.pushViewController(classVC, animated: true)
+        classVC.currentClass = currentClass
+        navigationController?.pushViewController(classVC, animated: true)
     }
     
     // MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.currentClass.syllabus.count
+        return currentClass.syllabus.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SyllabusTableViewCell.className(), for: indexPath) as! SyllabusTableViewCell
-        cell.configureForLesson(self.currentClass.syllabus[(indexPath as NSIndexPath).row])
+        cell.configureForLesson(currentClass.syllabus[indexPath.row])
         return cell
     }
-    
-   
-    
-
 }

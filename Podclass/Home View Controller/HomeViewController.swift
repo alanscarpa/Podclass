@@ -11,10 +11,10 @@ import EasyAnimation
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var topBarView: UIView!
-    @IBOutlet weak var podclassLabel: UILabel!
-    @IBOutlet weak var listenAndLearnLabel: UILabel!
-    @IBOutlet weak var classTableView: UITableView!
+    @IBOutlet fileprivate weak var topBarView: UIView!
+    @IBOutlet fileprivate weak var podclassLabel: UILabel!
+    @IBOutlet fileprivate weak var listenAndLearnLabel: UILabel!
+    @IBOutlet fileprivate weak var classTableView: UITableView!
     
     var dummyModels: [PCClass] = []
     var animationDidPlay = false
@@ -146,6 +146,4 @@ class HomeViewController: UIViewController {
         vc.currentClass = currentClass
         navigationController?.pushViewController(vc, animated: true)
     }
-
 }
-

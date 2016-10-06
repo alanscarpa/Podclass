@@ -12,5 +12,4 @@ extension NSObject {
     class func className() -> String {
         return NSStringFromClass(self as AnyClass).components(separatedBy: ".").last!
     }
-    
 }
