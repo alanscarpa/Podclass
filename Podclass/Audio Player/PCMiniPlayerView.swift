@@ -21,6 +21,7 @@ class PCMiniPlayerView: UIView {
     @IBOutlet weak var lessonNumberLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var expandButton: UIButton!
+    
     var bottomConstraint = NSLayoutConstraint()
     var isShowing = false
     var constraintsAreSet = false
@@ -33,6 +34,7 @@ class PCMiniPlayerView: UIView {
     var audioManager: PCAudioManager {
         return PCAudioManager.sharedInstance
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpNotifications()
@@ -95,6 +97,7 @@ class PCMiniPlayerView: UIView {
     }
     
     // MARK:  Actions
+    
     @IBAction func playButtonTapped() {
         PCAudioPlayerNotificationManager.defaultManager.postNotification(.MiniPlayerPlayPauseButtonTapped)
     }

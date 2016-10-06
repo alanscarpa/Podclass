@@ -104,7 +104,8 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     func setUpPlaybackObserver() {
         let interval = CMTimeMake(60, 1000)
         playbackObserver = audioManager.player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) { (time) in
-            let endTime = CMTimeConvertScale((self.audioManager.player.currentItem?.asset.duration)!, self.audioManager.player.currentTime().timescale, .roundHalfAwayFromZero)
+            guard let duration = self.audioManager.player.currentItem?.asset.duration else { return }
+            let endTime = CMTimeConvertScale(duration, self.audioManager.player.currentTime().timescale, .roundHalfAwayFromZero)
             if CMTimeCompare(endTime, kCMTimeZero) != 0 {
                 let normalizedTime: Float = Float(self.audioManager.player.currentTime().value) / Float(endTime.value)
                 self.updateProgressSlider(normalizedTime)
@@ -150,20 +151,13 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath:
         IndexPath) -> UITableViewCell {
-        currentClass.syllabus[(indexPath as NSIndexPath).row].indexPath = indexPath as NSIndexPath
-        let lessonForRow = currentClass.syllabus[(indexPath as NSIndexPath).row]
+        currentClass.syllabus[indexPath.row].indexPath = indexPath
+        let lessonForRow = currentClass.syllabus[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: PCClassTableViewCell.className(), for: indexPath) as! PCClassTableViewCell
         cell.configureForLesson(lessonForRow)
         cell.isActive = audioManager.currentLesson == lessonForRow
-        if cell.isActive && !audioManager.isPlaying {
-            cell.isPaused = true
-        }
-        if cell.isActive {
-            lastTappedIndexPath = indexPath
-        }
-        cell.preservesSuperviewLayoutMargins = false
-        cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
+        if cell.isActive && !audioManager.isPlaying { cell.isPaused = true }
+        if cell.isActive { lastTappedIndexPath = indexPath }
         return cell
     }
     
@@ -172,7 +166,7 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
         SVProgressHUD.show()
         audioManager.currentClass = currentClass
-        currentLesson = currentClass.syllabus[(indexPath as NSIndexPath).row]
+        currentLesson = currentClass.syllabus[indexPath.row]
         
         let cell = classTableView.cellForRow(at: indexPath) as! PCClassTableViewCell
         cell.isActive = true
@@ -184,7 +178,7 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
         lastTappedIndexPath = indexPath
 
         OperationQueue.main.addOperation {
-            self.audioManager.playLesson(self.audioManager.currentClass.syllabus[(indexPath as NSIndexPath).row])
+            self.audioManager.playLesson(self.audioManager.currentClass.syllabus[indexPath.row])
         }
     }
     

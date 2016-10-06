@@ -17,6 +17,13 @@ class PCClassTableViewCell: UITableViewCell {
     var playButtonImage = UIImage(named: "playButton")
     @IBOutlet weak var lessonDurationLabel: UILabel!
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        preservesSuperviewLayoutMargins = false
+        separatorInset = UIEdgeInsets.zero
+        layoutMargins = UIEdgeInsets.zero
+    }
+    
     var isActive = false {
         didSet {
             self.contentView.backgroundColor = self.isActive ? UIColor.pcLightOrange() : UIColor.white

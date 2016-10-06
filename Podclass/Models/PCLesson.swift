@@ -28,7 +28,7 @@ class PCLesson {
         }
     }
     
-    var indexPath = NSIndexPath()
+    var indexPath = IndexPath()
     
     convenience init(number: Int, title: String) {
         self.init()
