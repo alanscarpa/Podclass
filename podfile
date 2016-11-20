@@ -6,6 +6,7 @@ pod 'Alamofire'
 pod 'SVProgressHUD'
 pod 'PureLayout'
 pod 'ReachabilitySwift'
+pod 'ActiveLabel'
 
  post_install do |installer|
         installer.pods_project.targets.each do |target|

@@ -1,4 +1,5 @@
 PODS:
+  - ActiveLabel (0.7.0)
   - Alamofire (4.0.1)
   - EasyAnimation (1.1.1)
   - PureLayout (3.0.2)
@@ -6,6 +7,7 @@ PODS:
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
+  - ActiveLabel
   - Alamofire
   - EasyAnimation
   - PureLayout
@@ -13,12 +15,13 @@ DEPENDENCIES:
   - SVProgressHUD
 
 SPEC CHECKSUMS:
+  ActiveLabel: eb405c5b99275be52fac161f7a55cab1dd672c54
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   EasyAnimation: e67601df3eb57e86c570948a250ce162a5665b8a
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 1ace9a3bf8b9e9ba9ace0ba153d65169f2da70a0
+PODFILE CHECKSUM: 440ffc04cae5eea413b2112576821f6e1a0bd880
 
 COCOAPODS: 1.0.1

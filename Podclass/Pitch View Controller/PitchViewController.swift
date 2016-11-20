@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import ActiveLabel
 
 class PitchViewController: UIViewController {
     
     var currentClass = PCClass()
     
     @IBOutlet fileprivate weak var headerImageView: UIImageView!
-    @IBOutlet fileprivate weak var classTitleLabel: PCLabel!
-    @IBOutlet fileprivate weak var summaryBodyLabel: UILabel!
-    @IBOutlet fileprivate weak var whatYouLearnBodyLabel: UILabel!
-    @IBOutlet fileprivate weak var whoItsForBodyLabel: UILabel!
-    @IBOutlet fileprivate weak var producedByBodyLabel: UILabel!
+    @IBOutlet fileprivate weak var classTitleLabel: UILabel!
+    @IBOutlet fileprivate weak var summaryBodyLabel: ActiveLabel!
+    @IBOutlet fileprivate weak var whatYouLearnBodyLabel: ActiveLabel!
+    @IBOutlet fileprivate weak var whoItsForBodyLabel: ActiveLabel!
+    @IBOutlet fileprivate weak var producedByBodyLabel: ActiveLabel!
     @IBOutlet fileprivate weak var syllabusTableView: UITableView!
     @IBOutlet fileprivate weak var syllabusTableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet fileprivate weak var buttonBackgroundView: UIView!
@@ -36,6 +37,7 @@ class PitchViewController: UIViewController {
     fileprivate func setUp() {
         automaticallyAdjustsScrollViewInsets = false
         syllabusTableView.register(UINib(nibName: SyllabusTableViewCell.className(), bundle: nil), forCellReuseIdentifier: SyllabusTableViewCell.className())
+        
     }
     
     fileprivate func configureUI() {
@@ -45,6 +47,7 @@ class PitchViewController: UIViewController {
         whatYouLearnBodyLabel.text = currentClass.whatYouLearn
         whoItsForBodyLabel.text = currentClass.whoItsFor
         producedByBodyLabel.text = currentClass.producedBy
+        [summaryBodyLabel, whatYouLearnBodyLabel, whoItsForBodyLabel, producedByBodyLabel].forEach({ $0.handleURLTap { url in UIApplication.shared.openURL(url) } })
     }
     
     // Actions

@@ -16,10 +16,11 @@ class PCLesson {
     var title = ""
     var isPlaying = false
     var trackID = ""
+    var streamingURLString: String?
     var duration = "00:00"
     var trackURLString: String {
         get {
-            return URLPrefix+self.trackID
+            return streamingURLString ?? URLPrefix+self.trackID
         }
     }
     var index: Int {

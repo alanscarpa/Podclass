@@ -36,7 +36,6 @@ class PCAudioManager: NSObject {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "currentItem.status" {
             let status = (object as! AVPlayer).currentItem?.status
-            print(status?.rawValue)
             if status == .readyToPlay {
                 PCAudioPlayerNotificationManager.defaultManager.postNotification(.AudioStartedPlaying)
             } else if status == .failed {
