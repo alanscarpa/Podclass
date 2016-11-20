@@ -34,10 +34,22 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !animationDidPlay {
+        if !Defaults.appDidFinishInitialLaunch {
+            guard !animationDidPlay else { return }
             launchIntroAnimation()
             animationDidPlay = true
+        } else {
+            hideIntroUI()
         }
+    }
+    
+    fileprivate func hideIntroUI() {
+        podclassLabel.alpha = 1
+        podclassLabel.center.y = (navigationController?.navigationBar.bounds.maxY)!
+        topBarView.alpha = 1
+        classTableView.alpha = 1
+        podclassLabel.layer.zPosition = 10
+        podclassLabelTopConstraint.constant = 14
     }
     
     fileprivate func setUp() {
@@ -113,6 +125,7 @@ class HomeViewController: UIViewController {
                 self.view.layoutSubviews()
                 self.podclassLabel.layer.zPosition = 10
                 self.podclassLabelTopConstraint.constant = 14
+                Defaults.setAppDidFinishInitialLaunch()
             })
     }
     
