@@ -28,6 +28,7 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
     @IBOutlet fileprivate weak var classTitleLabel: UILabel!
     @IBOutlet fileprivate weak var classTableView: UITableView!
     @IBOutlet fileprivate weak var classTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var headerImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,8 @@ class ClassViewController: UIViewController, PCMiniPlayerDelegate {
         audioPlayerSync()
         setUpNotifications()
   
+        headerImageView.image = UIImage(named: currentClass.homeImageName)
+        
         let window = UIApplication.shared.keyWindow
         window?.addSubview(ClassViewController.miniPlayerView)
         ClassViewController.miniPlayerView.delegate = self

@@ -84,7 +84,9 @@ class HomeViewController: UIViewController {
         let class3 = PCClass()
         class3.name = "Analysis Paralysis"
         class3.homeImageName = "computerHands"
-        class3.summary = ""
+        class3.summary = "What is analysis paralysis and how does it affect programmers?"
+        class3.whoItsFor = "Anyone who has ever felt analysis paralysis.  Not just limited to programmers!"
+        class3.whatYouLearn = "Learn what the pros think about analysis paralysis."
         
         let class3Lesson = PCLesson(number: 1, title: "Analysis Paralysis")
         class3Lesson.streamingURLString = "https://media.simplecast.com/episodes/audio/52652/Analysis_Paralysis.mp3"

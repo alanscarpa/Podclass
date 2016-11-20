@@ -26,6 +26,12 @@ class PCAudioManager: NSObject {
         super.init()
         addKVO()
         NotificationCenter.default.addObserver(self, selector: #selector(trackFinishedPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Error trying to initialize avaudiosession")
+        }
     }
     
     deinit {

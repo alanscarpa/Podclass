@@ -13,6 +13,7 @@
                 <outlet property="classTableView" destination="9OK-f4-LMX" id="vCu-Z6-yiK"/>
                 <outlet property="classTableViewHeightConstraint" destination="Ka5-x4-D8C" id="fBy-lV-dfT"/>
                 <outlet property="classTitleLabel" destination="W0u-Pm-luu" id="YM4-m3-IX7"/>
+                <outlet property="headerImageView" destination="mmR-jh-iHs" id="VEJ-1U-3CQ"/>
                 <outlet property="view" destination="ED1-Ch-Pgu" id="hwB-TN-zrb"/>
             </connections>
         </placeholder>
