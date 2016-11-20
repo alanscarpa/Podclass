@@ -47,7 +47,14 @@ class PitchViewController: UIViewController {
         whatYouLearnBodyLabel.text = currentClass.whatYouLearn
         whoItsForBodyLabel.text = currentClass.whoItsFor
         producedByBodyLabel.text = currentClass.producedBy
-        [summaryBodyLabel, whatYouLearnBodyLabel, whoItsForBodyLabel, producedByBodyLabel].forEach({ $0.handleURLTap { url in UIApplication.shared.openURL(url) } })
+        [summaryBodyLabel, whatYouLearnBodyLabel, whoItsForBodyLabel, producedByBodyLabel].forEach({ $0.handleURLTap { url in UIApplication.shared.openURL(url)
+            }
+        })
+        
+        [summaryBodyLabel, whatYouLearnBodyLabel, whoItsForBodyLabel, producedByBodyLabel].forEach({ $0.handleMentionTap { username in guard let url = URL(string: "twitter://user?screen_name=\(username)") else { return }
+            UIApplication.shared.openURL(url)
+            }
+        })
     }
     
     // Actions

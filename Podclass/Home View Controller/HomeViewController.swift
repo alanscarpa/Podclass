@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
         lesson1.trackID = "0B4p7BGhD3xX5TW02aTJjZm1fX3M"
         lesson1.duration = "14:51"
         class1.syllabus = [lesson1]
-        class1.producedBy = "Podclass"
+        class1.producedBy = "Podclass.  Follow Steph on Twitter: @sostephoh"
         
         let class2 = PCClass()
         class2.name = "Tools of the Trade"
@@ -82,8 +82,15 @@ class HomeViewController: UIViewController {
         class2.producedBy = "http://conceptsincode.com/"
         
         let class3 = PCClass()
-        class3.name = "Designing for Mobile"
+        class3.name = "Analysis Paralysis"
         class3.homeImageName = "computerHands"
+        class3.summary = ""
+        
+        let class3Lesson = PCLesson(number: 1, title: "Analysis Paralysis")
+        class3Lesson.streamingURLString = "https://media.simplecast.com/episodes/audio/52652/Analysis_Paralysis.mp3"
+        class3Lesson.duration = "19:18"
+        class3.syllabus = [class3Lesson]
+        class3.producedBy = "Developer Tea https://spec.fm/podcasts/developer-tea"
         dummyModels = [class1, class2, class3]
     }
     
